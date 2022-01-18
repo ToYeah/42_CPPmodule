@@ -1,6 +1,6 @@
 NAME			:= ClapTrap
 CXX				:= clang++
-CXXFLAGS		:= -Wall -Wextra -Werror -MMD -MP -std=c++98
+CXXFLAGS		:= -Wall -Wextra -Werror -MMD -MP -std=c++98 -Wshadow -Wno-shadow
 SRCSDIR			:= .
 OBJSDIR			:= objs
 SRCS			:= $(shell find $(SRCSDIR) -type f -name "*.cpp" | xargs basename -a)
