@@ -50,6 +50,12 @@ std::ostream& operator<<(std::ostream& o, FragTrap const& i) {
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void FragTrap::attack(std::string const& target) {
+  std::cout << "FragTrap " << this->getName() << " attack " << target
+            << ", causing " << this->getAttackDamage() << " points of damage!"
+            << std::endl;
+};
+
 void FragTrap::highFivesGuys() {
   std::cout << "FragTrap \"" << this->getName()
             << "\" said \'Give me highfive!\'" << std::endl;
