@@ -5,9 +5,11 @@
 */
 
 DiamondTrap::DiamondTrap(std::string name)
-    : ClapTrap(name + "_clap_name"),
-      ScavTrap(name),
-      FragTrap(name),
+    : ClapTrap(name + "_clap_name", FragTrap::k_default_hit_points,
+               ScavTrap::k_default_energy_points_,
+               FragTrap::k_default_attack_damage_),
+      ScavTrap(name + "_clap_name"),
+      FragTrap(name + "_clap_name"),
       name_(name) {
   std::cout << "DiamondTrap \"" << name << "\" was born." << std::endl;
 }
@@ -54,6 +56,15 @@ std::ostream& operator<<(std::ostream& o, DiamondTrap const& i) {
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void DiamondTrap::attack(std::string const& target) {
+  this->ScavTrap::attack(target);
+}
+
+void DiamondTrap::whoAmI() {
+  std::cout << "My name is \"" << this->getName() << "\"" << std::endl;
+  std::cout << "My ClapTrap name is \"" << this->ClapTrap::getName() << "\""
+            << std::endl;
+};
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */

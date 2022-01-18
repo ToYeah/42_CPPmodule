@@ -35,6 +35,7 @@ int main(void) {
   diamond.takeDamage(100);
   diamond.beRepaired(100);
   diamond.highFivesGuys();
+  diamond.whoAmI();
 
   std::cout << "\n/////////////////////////////////////\n" << std::endl;
 }
