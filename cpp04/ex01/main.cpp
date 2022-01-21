@@ -1,38 +1,22 @@
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 
 int main() {
-  const Animal* meta = new Animal();
-  const Animal* j = new Dog();
-  const Animal* i = new Cat();
-  std::cout << j->getType() << " " << std::endl;
-  std::cout << i->getType() << " " << std::endl;
-  i->makeSound();  // will output the cat sound!
-  j->makeSound();
-  meta->makeSound();
+  Animal* animals[4];
 
+  for (size_t i = 0; i < 2; i++) {
+    animals[i] = new Dog();
+    std::cout << "\n";
+  }
+  for (size_t i = 2; i < 4; i++) {
+    animals[i] = new Cat();
+    std::cout << "\n";
+  }
   std::cout << "\n////////////////////////////////\n" << std::endl;
 
-  const WrongAnimal* wrong_meta = new WrongAnimal();
-  const WrongAnimal* wrong_cat = new WrongCat();
-
-  std::cout << wrong_meta->getType() << std::endl;
-  std::cout << wrong_cat->getType() << std::endl;
-
-  wrong_meta->makeSound();
-  wrong_cat->makeSound();
-
-  std::cout << "\n////////////////////////////////\n" << std::endl;
-
-  delete meta;
-  delete j;
-  delete i;
-
-  std::cout << "\n////////////////////////////////\n" << std::endl;
-
-  delete wrong_meta;
-  delete wrong_cat;
+  for (size_t i = 0; i < 4; i++) {
+    delete animals[i];
+    std::cout << "\n";
+  }
 }
