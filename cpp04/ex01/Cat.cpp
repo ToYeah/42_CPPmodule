@@ -44,6 +44,9 @@ Cat& Cat::operator=(Cat const& rhs) {
 
 void Cat::makeSound() const { std::cout << "Nya-! Nya-!" << std::endl; }
 
+void Cat::showIdeas() const { this->brain->showIdeas(); };
+
+void Cat::setIdea(std::string& idea) { this->brain->setIdea(idea); };
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */

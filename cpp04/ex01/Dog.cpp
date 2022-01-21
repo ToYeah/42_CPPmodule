@@ -42,6 +42,10 @@ Dog& Dog::operator=(Dog const& rhs) {
 */
 
 void Dog::makeSound() const { std::cout << "Wan! Wan!" << std::endl; }
+
+void Dog::showIdeas() const { this->brain->showIdeas(); };
+
+void Dog::setIdea(std::string& idea) { this->brain->setIdea(idea); };
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
