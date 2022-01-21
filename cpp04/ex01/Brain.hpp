@@ -12,8 +12,15 @@ class Brain {
 
   Brain& operator=(Brain const& rhs);
 
+  void showIdeas() const;
+  void setIdea(std::string& idea);
+
  private:
-  std::string ideas[100];
+  static const size_t k_idea_max_size = 100;
+
+  size_t index;
+  size_t idea_size;
+  std::string ideas[k_idea_max_size];
 };
 
 #endif /* *********************************************************** BRAIN_H \

@@ -36,6 +36,22 @@ Brain& Brain::operator=(Brain const& rhs) {
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void Brain::showIdeas() const {
+  std::cout << "-----IDEAS-----" << std::endl;
+  for (size_t i = 0; i < idea_size; i++) {
+    std::cout << this->ideas[i] << std::endl;
+  }
+  std::cout << "---------------" << std::endl;
+};
+
+void Brain::setIdea(std::string& idea) {
+  this->ideas[index] = idea;
+  this->index = this->index == Brain::k_idea_max_size ? 0 : this->index + 1;
+  this->idea_size = this->index == Brain::k_idea_max_size
+                        ? Brain::k_idea_max_size
+                        : idea_size + 1;
+}
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
