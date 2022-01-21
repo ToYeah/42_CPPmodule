@@ -33,7 +33,7 @@ Dog::~Dog() {
 Dog& Dog::operator=(Dog const& rhs) {
   if (this != &rhs) {
     Animal::operator=(rhs);
-    *(this->brain) = *(rhs.brain);
+    this->brain = new Brain(*(rhs.brain));
   }
   return *this;
 }
@@ -46,7 +46,7 @@ void Dog::makeSound() const { std::cout << "Wan! Wan!" << std::endl; }
 
 void Dog::showIdeas() const { this->brain->showIdeas(); };
 
-void Dog::setIdea(std::string& idea) { this->brain->setIdea(idea); };
+void Dog::setIdea(std::string idea) { this->brain->setIdea(idea); };
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
