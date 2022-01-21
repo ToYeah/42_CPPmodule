@@ -6,6 +6,7 @@
 
 Dog::Dog() {
   this->type = "Dog";
+  this->brain = new Brain();
   std::cout << "Dog constructor executed" << std::endl;
 }
 
