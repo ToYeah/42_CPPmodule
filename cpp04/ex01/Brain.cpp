@@ -4,7 +4,9 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Brain::Brain() { std::cout << "Brain constructor executed" << std::endl; }
+Brain::Brain() : index(0), idea_size(0) {
+  std::cout << "Brain constructor executed" << std::endl;
+}
 
 Brain::Brain(const Brain& src) {
   std::cout << "Brain copy constructor executed" << std::endl;
@@ -28,6 +30,8 @@ Brain& Brain::operator=(Brain const& rhs) {
     for (size_t i = 0; i < 100; i++) {
       this->ideas[i] = rhs.ideas[i];
     }
+    this->index = rhs.index;
+    this->idea_size = rhs.idea_size;
   }
   return *this;
 }
