@@ -8,9 +8,13 @@ class Animal {
  public:
   Animal();
   Animal(Animal const& src);
-  ~Animal();
+  virtual ~Animal();
 
   Animal& operator=(Animal const& rhs);
+
+  virtual void makeSound() const;
+
+  std::string getType() const;
 
  protected:
   std::string type;
