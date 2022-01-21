@@ -6,6 +6,7 @@
 
 Cat::Cat() {
   this->type = "Cat";
+  this->brain = new Brain();
   std::cout << "Cat constructor executed" << std::endl;
 }
 
@@ -20,7 +21,10 @@ Cat::Cat(const Cat& src) {
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Cat::~Cat() { std::cout << "Cat destructor executed" << std::endl; }
+Cat::~Cat() {
+  delete this->brain;
+  std::cout << "Cat destructor executed" << std::endl;
+}
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
@@ -29,6 +33,7 @@ Cat::~Cat() { std::cout << "Cat destructor executed" << std::endl; }
 Cat& Cat::operator=(Cat const& rhs) {
   if (this != &rhs) {
     Animal::operator=(rhs);
+    *(this->brain) = *(rhs.brain);
   }
   return *this;
 }

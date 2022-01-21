@@ -5,6 +5,7 @@
 #include <string>
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal {
  public:
@@ -17,6 +18,7 @@ class Cat : public Animal {
   void makeSound() const;
 
  private:
+  Brain* brain;
 };
 
 #endif /* ************************************************************* CAT_H \
