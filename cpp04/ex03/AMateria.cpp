@@ -40,4 +40,9 @@ std::ostream& operator<<(std::ostream& o, AMateria const& i) {
 
 std::string const& AMateria::getType() const { return this->type_; };
 
+void AMateria::use(ICharacter& target) {
+  std::cout << "* AMateria! Type " << target.getName() << "’s wounds *"
+            << std::endl;
+}
+
 /* ************************************************************************** */
