@@ -37,11 +37,6 @@ Character& Character::operator=(Character const& rhs) {
   return *this;
 }
 
-std::ostream& operator<<(std::ostream& o, Character const& i) {
-  std::cout << "I am " << i.getName() << std::endl;
-  return o;
-}
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */

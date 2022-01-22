@@ -25,11 +25,6 @@ AMateria& AMateria::operator=(AMateria const& rhs) {
   return *this;
 }
 
-std::ostream& operator<<(std::ostream& o, AMateria const& i) {
-  std::cout << "This is AMateria \"" << i.getType() << "\"" << std::endl;
-  return o;
-}
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */

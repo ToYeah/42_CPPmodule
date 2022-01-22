@@ -25,11 +25,6 @@ Ice& Ice::operator=(Ice const& rhs) {
   return *this;
 }
 
-std::ostream& operator<<(std::ostream& o, Ice const& i) {
-  std::cout << "This is " << i.getType() << std::endl;
-  return o;
-}
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
