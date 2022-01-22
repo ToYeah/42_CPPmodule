@@ -6,6 +6,8 @@
 
 #include "ICharacter.hpp"
 
+class ICharacter;
+
 class AMateria {
  public:
   AMateria(std::string const& type);
