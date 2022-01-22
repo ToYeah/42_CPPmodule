@@ -36,8 +36,6 @@ Animal& Animal::operator=(Animal const& rhs) {
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void Animal::makeSound() const { std::cout << "animal!" << std::endl; }
-
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
