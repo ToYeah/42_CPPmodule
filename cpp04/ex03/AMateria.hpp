@@ -8,7 +8,7 @@ class AMateria {
  public:
   AMateria(std::string const& type);
   AMateria(AMateria const& src);
-  ~AMateria();
+  virtual ~AMateria();
 
   AMateria& operator=(AMateria const& rhs);
 
