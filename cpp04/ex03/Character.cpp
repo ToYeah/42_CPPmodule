@@ -47,6 +47,7 @@ std::ostream& operator<<(std::ostream& o, Character const& i) {
 */
 
 void Character::equip(AMateria* m) {
+  delete materias_[index_];
   materias_[index_] = m;
   index_++;
   index_ = index_ == k_max_materias_size ? 0 : index_;
