@@ -50,8 +50,8 @@ void Brain::showIdeas() const {
 
 void Brain::setIdea(std::string& idea) {
   this->ideas[index] = idea;
-  this->index = this->index == Brain::k_idea_max_size ? 0 : this->index + 1;
-  this->idea_size = this->index == Brain::k_idea_max_size
+  this->index = this->index + 1 == Brain::k_idea_max_size ? 0 : this->index + 1;
+  this->idea_size = this->index + 1 == Brain::k_idea_max_size
                         ? Brain::k_idea_max_size
                         : idea_size + 1;
 }
