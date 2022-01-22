@@ -7,15 +7,24 @@
 class AMateria {
  public:
   AMateria(std::string const& type);
+  AMateria(AMateria const& src);
+  ~AMateria();
 
-  std::string const& getType() const;
+  AMateria& operator=(AMateria const& rhs);
 
   virtual AMateria* clone() const = 0;
   // virtual void use(ICharacter& target);
 
+  std::string const& getType() const;
+
  protected:
   std::string type_;
+
+ private:
+  AMateria();
 };
+
+std::ostream& operator<<(std::ostream& o, AMateria const& i);
 
 #endif /* ******************************************************** AMATERIA_H \
         */
