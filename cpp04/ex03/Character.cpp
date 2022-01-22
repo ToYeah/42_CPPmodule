@@ -69,4 +69,6 @@ void Character::use(int idx, ICharacter& target) {
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+std::string const& Character::getName() const { return this->name_; };
+
 /* ************************************************************************** */
