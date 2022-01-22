@@ -26,7 +26,7 @@ Cure& Cure::operator=(Cure const& rhs) {
 }
 
 std::ostream& operator<<(std::ostream& o, Cure const& i) {
-  std::cout << "This is Cure" << std::endl;
+  std::cout << "This is " << i.getType() << std::endl;
   return o;
 }
 

@@ -26,7 +26,7 @@ Ice& Ice::operator=(Ice const& rhs) {
 }
 
 std::ostream& operator<<(std::ostream& o, Ice const& i) {
-  std::cout << "This is Ice" << std::endl;
+  std::cout << "This is " << i.getType() << std::endl;
   return o;
 }
 
