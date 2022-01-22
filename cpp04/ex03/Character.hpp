@@ -22,7 +22,7 @@ class Character : public ICharacter {
  private:
   Character();
 
-  static const size_t k_max_materias_size = 4;
+  static const int k_max_materias_size = 4;
 
   std::string name_;
   AMateria* materias_[k_max_materias_size];
