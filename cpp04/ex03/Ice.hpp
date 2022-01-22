@@ -15,8 +15,7 @@ class Ice : public AMateria {
   Ice& operator=(Ice const& rhs);
 
   AMateria* clone() const;
-
- private:
+  void use(ICharacter& target);
 };
 
 std::ostream& operator<<(std::ostream& o, Ice const& i);

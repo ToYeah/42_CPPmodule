@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 
+#include "ICharacter.hpp"
+
 class AMateria {
  public:
   AMateria(std::string const& type);
@@ -13,7 +15,7 @@ class AMateria {
   AMateria& operator=(AMateria const& rhs);
 
   virtual AMateria* clone() const = 0;
-  // virtual void use(ICharacter& target);
+  virtual void use(ICharacter& target);
 
   std::string const& getType() const;
 

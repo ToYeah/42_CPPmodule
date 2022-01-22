@@ -35,6 +35,10 @@ std::ostream& operator<<(std::ostream& o, Cure const& i) {
 */
 
 AMateria* Cure::clone() const { return new Cure(*this); };
+
+void Cure::use(ICharacter& target) {
+  std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
+}
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
