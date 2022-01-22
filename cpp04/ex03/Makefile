@@ -1,4 +1,4 @@
-NAME			:= animal
+NAME			:= materia
 CXX				:= clang++
 CXXFLAGS		:= -Wall -Wextra -Werror -MMD -MP -std=c++98
 SRCSDIR			:= .
