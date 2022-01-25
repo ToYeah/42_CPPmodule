@@ -42,10 +42,12 @@ Character& Character::operator=(Character const& rhs) {
 */
 
 void Character::equip(AMateria* m) {
-  delete materias_[index_];
-  materias_[index_] = m;
-  index_++;
-  index_ = index_ == k_max_materias_size ? 0 : index_;
+  if (m) {
+    delete materias_[index_];
+    materias_[index_] = m;
+    index_++;
+    index_ = index_ == k_max_materias_size ? 0 : index_;
+  }
 };
 
 void Character::unequip(int idx) {

@@ -41,10 +41,12 @@ MateriaSource& MateriaSource::operator=(MateriaSource const& rhs) {
 */
 
 void MateriaSource::learnMateria(AMateria* m) {
-  delete materias_[index_];
-  materias_[index_] = m;
-  index_++;
-  index_ = index_ == k_max_materias_size ? 0 : index_;
+  if (m) {
+    delete materias_[index_];
+    materias_[index_] = m;
+    index_++;
+    index_ = index_ == k_max_materias_size ? 0 : index_;
+  }
 };
 
 AMateria* MateriaSource::createMateria(std::string const& type) {
