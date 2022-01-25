@@ -71,7 +71,6 @@ void Character::showMaterias() {
         this->materias_[i] ? this->materias_[i]->getType() : "NULL";
     std::cout << i + 1 << ": " << materiaName << std::endl;
   }
-
   std::cout << "----------" << std::endl;
 };
 

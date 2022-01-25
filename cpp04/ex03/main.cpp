@@ -25,10 +25,25 @@ int main() {
 
   std::cout << "\n////////////////////////////////\n" << std::endl;
 
-  IMateriaSource* materiaSrc = new MateriaSource();
-  materiaSrc->learnMateria(new Ice());
-  materiaSrc->learnMateria(new Cure());
+  MateriaSource* materiaSrc = new MateriaSource();
   Character* sephiroth = new Character("sephiroth");
+
+  materiaSrc->learnMateria(new Ice());
+  materiaSrc->learnMateria(NULL);
+  materiaSrc->showMaterias();
+
+  materiaSrc->learnMateria(new Cure());
+  materiaSrc->showMaterias();
+
+  materiaSrc->learnMateria(new Cure());
+  materiaSrc->learnMateria(new Cure());
+  materiaSrc->learnMateria(new Cure());
+  materiaSrc->showMaterias();
+
+  materiaSrc->learnMateria(new Ice());
+  materiaSrc->showMaterias();
+
+  std::cout << "\n////////////////////////////////\n" << std::endl;
 
   sephiroth->equip(materiaSrc->createMateria("ice"));
   sephiroth->equip(materiaSrc->createMateria("cure"));
