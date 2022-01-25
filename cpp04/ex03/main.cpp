@@ -56,5 +56,8 @@ int main() {
   sephiroth->equip(materiaSrc->createMateria("cure"));
   sephiroth->showMaterias();
 
+  sephiroth->unequip(0);
+  sephiroth->showMaterias();
+
   return 0;
 }

@@ -69,7 +69,7 @@ void Character::showMaterias() {
   for (size_t i = 0; i < k_max_materias_size; i++) {
     std::string materiaName =
         this->materias_[i] ? this->materias_[i]->getType() : "NULL";
-    std::cout << i + 1 << ": " << materiaName << std::endl;
+    std::cout << i << ": " << materiaName << std::endl;
   }
   std::cout << "----------" << std::endl;
 };
