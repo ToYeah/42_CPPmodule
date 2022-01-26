@@ -4,6 +4,8 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
+Bureaucrat::Bureaucrat() {}
+
 Bureaucrat::Bureaucrat(std::string name, int grade)
     : name_(name), grade_(grade) {
   if (grade < k_max_grade) {
