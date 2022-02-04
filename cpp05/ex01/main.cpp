@@ -3,35 +3,45 @@
 int main() {
   Bureaucrat bureaucrat = Bureaucrat("Taro", 1);
   try {
-    std::cout << bureaucrat << std::endl;
-    bureaucrat.decrementGrade();
-    std::cout << bureaucrat << std::endl;
-    bureaucrat.incrementGrade();
-    std::cout << bureaucrat << std::endl;
-    bureaucrat.incrementGrade();
+    Form form = Form("Plan", 10, 10);
+    std::cout << form << std::endl;
   } catch (const std::exception& e) {
     std::cerr << e.what() << '\n';
   }
 
+  std::cout << "/////////////////////" << std::endl;
   try {
-    bureaucrat = Bureaucrat("Taro", 150);
-    std::cout << bureaucrat << std::endl;
-    bureaucrat.incrementGrade();
-    std::cout << bureaucrat << std::endl;
-    bureaucrat.decrementGrade();
-    std::cout << bureaucrat << std::endl;
-    bureaucrat.decrementGrade();
+    Form form = Form("Plan", 0, 10);
+    std::cout << form << std::endl;
   } catch (const std::exception& e) {
     std::cerr << e.what() << '\n';
   }
+  try {
+    Form form = Form("Plan", 10, 0);
+    std::cout << form << std::endl;
+  } catch (const std::exception& e) {
+    std::cerr << e.what() << '\n';
+  }
+  try {
+    Form form = Form("Plan", 151, 10);
+    std::cout << form << std::endl;
+  } catch (const std::exception& e) {
+    std::cerr << e.what() << '\n';
+  }
+  try {
+    Form form = Form("Plan", 10, 151);
+    std::cout << form << std::endl;
+  } catch (const std::exception& e) {
+    std::cerr << e.what() << '\n';
+  }
+  std::cout << "/////////////////////" << std::endl;
 
   try {
-    bureaucrat = Bureaucrat("Taro", 200);
-  } catch (const std::exception& e) {
-    std::cerr << e.what() << '\n';
-  }
-  try {
-    bureaucrat = Bureaucrat("Taro", 0);
+    Bureaucrat bureaucrat = Bureaucrat("Taro", 1);
+    Form form = Form("Plan", 10, 10);
+    std::cout << bureaucrat << std::endl;
+    std::cout << form << std::endl;
+    bureaucrat.signForm(form);
   } catch (const std::exception& e) {
     std::cerr << e.what() << '\n';
   }

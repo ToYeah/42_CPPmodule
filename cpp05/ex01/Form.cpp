@@ -43,10 +43,13 @@ Form& Form::operator=(Form const& rhs) {
 }
 
 std::ostream& operator<<(std::ostream& o, Form const& i) {
+  o << "-----------" << std::endl;
   o << "Form status" << std::endl;
+  o << "Name: " << i.getName() << std::endl;
   o << "Sign: " << i.getIsSigned() << std::endl;
   o << "SignGrade: " << i.getSignGrade() << std::endl;
   o << "ExecutionGrade: " << i.getExecutionGrade() << std::endl;
+  o << "-----------" << std::endl;
   return o;
 }
 
