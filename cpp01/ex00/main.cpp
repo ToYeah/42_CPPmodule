@@ -16,6 +16,9 @@ int main() {
     delete nosuzuki;
     delete sso;
 
+    Zombie yohki = Zombie("yohki");
+    yohki.announce();
+
   } catch (const std::exception &e) {
     std::cout << e.what() << '\n';
   }
