@@ -21,8 +21,6 @@ chmod 000 permission_output.txt.replace
 
 ./replace nothing.txt nothing nothing;
 
-./replace nothing.txt nothing nothing;
-
 ./replace hello.txt hello Hello;
 cat hello.txt.replace;
 
