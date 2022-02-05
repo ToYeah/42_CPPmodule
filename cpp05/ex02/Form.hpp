@@ -35,6 +35,11 @@ class Form {
     const char* what() const throw();
   };
 
+  class NotSignedException : public std::exception {
+   public:
+    const char* what() const throw();
+  };
+
  private:
   Form();
 

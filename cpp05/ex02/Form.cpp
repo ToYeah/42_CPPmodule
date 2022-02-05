@@ -81,6 +81,10 @@ const char* Form::GradeTooLowException::what() const throw() {
   return "Grade is below the minimum.";
 };
 
+const char* Form::NotSignedException::what() const throw() {
+  return "This Form is not signed yet.";
+};
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
