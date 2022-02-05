@@ -16,7 +16,7 @@ class Form {
 
   Form& operator=(Form const& rhs);
 
-  bool signForm(Bureaucrat& bureaucrat);
+  const char* signForm(Bureaucrat& bureaucrat);
 
   const std::string& getName() const;
   const bool& getIsSigned() const;

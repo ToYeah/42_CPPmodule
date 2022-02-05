@@ -57,12 +57,15 @@ std::ostream& operator<<(std::ostream& o, Form const& i) {
 ** --------------------------------- METHODS ----------------------------------
 */
 
-bool Form::signForm(Bureaucrat& bureaucrat) {
-  if (bureaucrat.getGrade() <= sign_grade_) {
+const char* Form::signForm(Bureaucrat& bureaucrat) {
+  if (bureaucrat.getGrade() <= sign_grade_ && !is_signed_) {
     is_signed_ = true;
-    return true;
+    return NULL;
+  } else if (is_signed_) {
+    return "already signed.";
+  } else {
+    return "Not enough grade.";
   }
-  return false;
 }
 
 const char* Form::GradeTooHighException::what() const throw() {

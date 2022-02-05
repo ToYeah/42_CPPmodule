@@ -60,11 +60,12 @@ void Bureaucrat::decrementGrade() {
 };
 
 void Bureaucrat::signForm(Form& form) {
-  if (form.signForm(*(this))) {
+  const char* reason = form.signForm(*(this));
+  if (reason == NULL) {
     std::cout << name_ << " signs " << form.getName() << std::endl;
   } else {
-    std::cout << name_ << " cannot sign " << form.getName()
-              << " because Not enough grade" << std::endl;
+    std::cout << name_ << " cannot sign " << form.getName() << " because ";
+    std::cout << reason << std::endl;
   }
 }
 
