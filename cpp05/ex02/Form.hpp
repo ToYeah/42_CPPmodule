@@ -10,7 +10,7 @@ class Bureaucrat;
 
 class Form {
  public:
-  Form(std::string name, int sign, int execution);
+  Form(std::string name, std::string target, int sign, int execution);
   Form(Form const& src);
   ~Form();
 
@@ -39,6 +39,7 @@ class Form {
   Form();
 
   const std::string name_;
+  const std::string target_;
   const int sign_grade_;
   const int execution_grade_;
   bool is_signed_;
