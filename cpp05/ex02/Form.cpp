@@ -43,17 +43,6 @@ Form& Form::operator=(Form const& rhs) {
   return *this;
 }
 
-std::ostream& operator<<(std::ostream& o, Form const& i) {
-  o << "-----------" << std::endl;
-  o << "Form status" << std::endl;
-  o << "Name: " << i.getName() << std::endl;
-  o << "Sign: " << i.getIsSigned() << std::endl;
-  o << "SignGrade: " << i.getSignGrade() << std::endl;
-  o << "ExecutionGrade: " << i.getExecutionGrade() << std::endl;
-  o << "-----------" << std::endl;
-  return o;
-}
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
@@ -77,6 +66,18 @@ bool Form::isExecutable(Bureaucrat const& executor) {
     throw new GradeTooLowException();
   }
   return true;
+}
+
+std::ostream& Form::printStatus(std::ostream& o) const {
+  o << "-----------" << std::endl;
+  o << "Form status" << std::endl;
+  o << "Name: " << name_ << std::endl;
+  o << "Sign: " << is_signed_ << std::endl;
+  o << "SignGrade: " << sign_grade_ << std::endl;
+  o << "ExecutionGrade: " << execution_grade_ << std::endl;
+  o << "Target: " << target_ << std::endl;
+  o << "-----------" << std::endl;
+  return o;
 }
 
 const char* Form::GradeTooHighException::what() const throw() {

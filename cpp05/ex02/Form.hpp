@@ -24,6 +24,7 @@ class Form {
   const bool& getIsSigned() const;
   const int& getSignGrade() const;
   const int& getExecutionGrade() const;
+  std::ostream& printStatus(std::ostream& o) const;
 
   class GradeTooHighException : public std::exception {
    public:
@@ -49,8 +50,6 @@ class Form {
   const int execution_grade_;
   bool is_signed_;
 };
-
-std::ostream& operator<<(std::ostream& o, Form const& i);
 
 #endif /* ************************************************************ FORM_H \
         */
