@@ -68,6 +68,10 @@ const char* Form::signForm(Bureaucrat& bureaucrat) {
   }
 }
 
+bool Form::isExecutable(Bureaucrat const& executor) {
+  return is_signed_ && execution_grade_ >= executor.getGrade();
+}
+
 const char* Form::GradeTooHighException::what() const throw() {
   return "Grade is above the maximum.";
 };

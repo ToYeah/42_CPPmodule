@@ -17,6 +17,8 @@ class Form {
   Form& operator=(Form const& rhs);
 
   const char* signForm(Bureaucrat& bureaucrat);
+  bool isExecutable(Bureaucrat const& executor);
+  virtual void execute(Bureaucrat const& executor) const = 0;
 
   const std::string& getName() const;
   const bool& getIsSigned() const;
