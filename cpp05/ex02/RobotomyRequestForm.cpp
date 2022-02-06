@@ -41,8 +41,9 @@ std::ostream& operator<<(std::ostream& o, RobotomyRequestForm const& i) {
 */
 
 void RobotomyRequestForm::execute(Bureaucrat const& executor) {
-  isExecutable(executor);
-
+  if (!isExecutable(executor)) {
+    return;
+  }
   std::string res = rand() % 2 ? "successfully" : "unsuccessfully";
   std::cout << "wheeeeeeeee" << std::endl;
   std::cout << "wheeeeeeeeeeeee" << std::endl;
