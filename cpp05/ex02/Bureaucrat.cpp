@@ -69,6 +69,15 @@ void Bureaucrat::signForm(Form& form) {
   }
 }
 
+void Bureaucrat::executeForm(Form const& form) {
+  try {
+    form.execute(*this);
+  } catch (const std::exception& e) {
+    std::cerr << "An error has occured." << std::endl;
+    std::cerr << e.what() << '\n';
+  }
+}
+
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
   return "Grade is above the maximum.";
 };
