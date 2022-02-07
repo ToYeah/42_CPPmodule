@@ -9,7 +9,7 @@ const std::string Intern::k_form_types[k_form_type_count] = {
 
 Intern::Intern() {}
 
-Intern::Intern(const Intern& src) {}
+Intern::Intern(const Intern& src) { *this = src; }
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
@@ -21,7 +21,7 @@ Intern::~Intern() {}
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Intern& Intern::operator=(Intern const& rhs) { return *this; }
+Intern& Intern::operator=(Intern const&) { return *this; }
 
 /*
 ** --------------------------------- METHODS ----------------------------------
