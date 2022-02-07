@@ -106,4 +106,6 @@ const int& Form::getSignGrade() const { return sign_grade_; };
 
 const int& Form::getExecutionGrade() const { return execution_grade_; };
 
+const std::string& Form::getTarget() const { return target_; };
+
 /* ************************************************************************** */

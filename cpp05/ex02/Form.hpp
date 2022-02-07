@@ -24,6 +24,7 @@ class Form {
   const bool& getIsSigned() const;
   const int& getSignGrade() const;
   const int& getExecutionGrade() const;
+  const std::string& getTarget() const;
   std::ostream& printStatus(std::ostream& o) const;
 
   class GradeTooHighException : public std::exception {
