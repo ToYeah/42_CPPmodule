@@ -19,4 +19,21 @@ int main() {
   } catch (const std::exception& e) {
     std::cerr << e.what() << '\n';
   }
+
+  try {
+    std::cout << "Sign Error: " << std::endl;
+    RobotomyRequestForm form = RobotomyRequestForm("Plan", "Target", 10, 10);
+    taro.executeForm(form);
+  } catch (const std::exception& e) {
+    std::cerr << e.what() << '\n';
+  }
+
+  try {
+    std::cout << "Grade Error: " << std::endl;
+    RobotomyRequestForm form = RobotomyRequestForm("Plan", "Target", 10, 10);
+    form.signForm(taro);
+    hanako.executeForm(form);
+  } catch (const std::exception& e) {
+    std::cerr << e.what() << '\n';
+  }
 }
