@@ -1,8 +1,7 @@
 #ifndef ROBOTOMYREQUESTFORM_HPP
 #define ROBOTOMYREQUESTFORM_HPP
 
-#include <stdlib.h>
-
+#include <cstdlib>
 #include <iostream>
 #include <string>
 
