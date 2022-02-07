@@ -4,9 +4,12 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-RobotomyRequestForm::RobotomyRequestForm(std::string name, std::string target,
-                                         int sign, int execution)
-    : Form(name, target, sign, execution) {}
+const int RobotomyRequestForm::k_sign_grade = 72;
+const int RobotomyRequestForm::k_execution_grade = 45;
+const std::string RobotomyRequestForm::k_name = "RobotomyRequestForm";
+
+RobotomyRequestForm::RobotomyRequestForm(std::string target)
+    : Form(k_name, target, k_sign_grade, k_execution_grade) {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& src)
     : Form(src) {

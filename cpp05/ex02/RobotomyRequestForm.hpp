@@ -10,8 +10,7 @@
 
 class RobotomyRequestForm : public Form {
  public:
-  RobotomyRequestForm(std::string name, std::string target, int sign,
-                      int execution);
+  RobotomyRequestForm(std::string target);
   RobotomyRequestForm(RobotomyRequestForm const& src);
   ~RobotomyRequestForm();
 
@@ -20,6 +19,9 @@ class RobotomyRequestForm : public Form {
   RobotomyRequestForm& operator=(RobotomyRequestForm const& rhs);
 
  private:
+  static const int k_sign_grade;
+  static const int k_execution_grade;
+  static const std::string k_name;
   RobotomyRequestForm();
 };
 
