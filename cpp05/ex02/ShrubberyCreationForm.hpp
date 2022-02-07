@@ -1,6 +1,7 @@
 #ifndef SHRUBBERYCREATIONFORM_HPP
 #define SHRUBBERYCREATIONFORM_HPP
 
+#include <fstream>
 #include <iostream>
 #include <string>
 
@@ -21,6 +22,7 @@ class ShrubberyCreationForm : public Form {
   static const int k_execution_grade;
   static const std::string k_name;
   static const std::string k_default_target;
+  static const std::string k_ascii_tree;
   ShrubberyCreationForm();
 };
 
