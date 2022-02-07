@@ -54,10 +54,20 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
   if (!isExecutable(executor)) {
     return;
   }
-  std::ofstream output_file_stream((getTarget() + "_shrubbery").c_str());
-  output_file_stream << k_ascii_tree;
-  output_file_stream.close();
+  try {
+    std::ofstream file;
+    file.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+    file.open((getTarget() + "_shrubbery").c_str(), std::ios_base::out);
+    file << k_ascii_tree;
+    file.close();
+  } catch (const std::exception& e) {
+    throw FileErrorException();
+  }
 }
+
+const char* ShrubberyCreationForm::FileErrorException::what() const throw() {
+  return "Failed to output to file.";
+};
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

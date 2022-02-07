@@ -3,6 +3,7 @@
 #include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main() {
   std::srand(static_cast<unsigned int>(std::time(NULL)));
@@ -78,6 +79,43 @@ int main() {
   try {
     std::cout << "\nGrade Error----- " << std::endl;
     PresidentialPardonForm form = PresidentialPardonForm("Target");
+    taro.signForm(form);
+    hanako.executeForm(form);
+  } catch (const std::exception& e) {
+    std::cerr << e.what() << '\n';
+  }
+
+  std::cout << "\n-----ShrubberyCreationForm Test----" << std::endl;
+
+  try {
+    std::cout << "\nSucces-----" << std::endl;
+    ShrubberyCreationForm form = ShrubberyCreationForm("Target");
+    taro.signForm(form);
+    taro.executeForm(form);
+  } catch (const std::exception& e) {
+    std::cerr << e.what() << '\n';
+  }
+
+  try {
+    std::cout << "\nSign Error----- " << std::endl;
+    ShrubberyCreationForm form = ShrubberyCreationForm("Target");
+    hanako.signForm(form);
+    hanako.executeForm(form);
+  } catch (const std::exception& e) {
+    std::cerr << e.what() << '\n';
+  }
+
+  try {
+    std::cout << "\nNot Sign Error----- " << std::endl;
+    ShrubberyCreationForm form = ShrubberyCreationForm("Target");
+    taro.executeForm(form);
+  } catch (const std::exception& e) {
+    std::cerr << e.what() << '\n';
+  }
+
+  try {
+    std::cout << "\nGrade Error----- " << std::endl;
+    ShrubberyCreationForm form = ShrubberyCreationForm("Target");
     taro.signForm(form);
     hanako.executeForm(form);
   } catch (const std::exception& e) {

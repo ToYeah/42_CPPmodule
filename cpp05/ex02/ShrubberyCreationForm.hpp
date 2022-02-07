@@ -17,6 +17,11 @@ class ShrubberyCreationForm : public Form {
 
   ShrubberyCreationForm& operator=(ShrubberyCreationForm const& rhs);
 
+  class FileErrorException : public std::exception {
+   public:
+    const char* what() const throw();
+  };
+
  private:
   static const int k_sign_grade;
   static const int k_execution_grade;
