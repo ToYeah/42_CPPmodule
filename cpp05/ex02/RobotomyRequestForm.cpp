@@ -40,7 +40,7 @@ std::ostream& operator<<(std::ostream& o, RobotomyRequestForm const& i) {
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void RobotomyRequestForm::execute(Bureaucrat const& executor) {
+void RobotomyRequestForm::execute(Bureaucrat const& executor) const {
   if (!isExecutable(executor)) {
     return;
   }

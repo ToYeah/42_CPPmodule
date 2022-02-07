@@ -1,9 +1,10 @@
 #ifndef ROBOTOMYREQUESTFORM_HPP
 #define ROBOTOMYREQUESTFORM_HPP
 
+#include <stdlib.h>
+
 #include <iostream>
 #include <string>
-#include <stdlib.h>
 
 #include "Form.hpp"
 
@@ -14,7 +15,7 @@ class RobotomyRequestForm : public Form {
   RobotomyRequestForm(RobotomyRequestForm const& src);
   ~RobotomyRequestForm();
 
-  void execute(Bureaucrat const& executor);
+  void execute(Bureaucrat const& executor) const;
 
   RobotomyRequestForm& operator=(RobotomyRequestForm const& rhs);
 
