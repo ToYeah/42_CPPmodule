@@ -1,7 +1,11 @@
+#include <ctime>
+
 #include "Bureaucrat.hpp"
 #include "RobotomyRequestForm.hpp"
 
 int main() {
+  std::srand(static_cast<unsigned int>(std::time(NULL)));
+
   Bureaucrat taro = Bureaucrat("Taro", 1);
   Bureaucrat hanako = Bureaucrat("Hanako", 100);
 
