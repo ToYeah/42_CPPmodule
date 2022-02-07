@@ -55,7 +55,7 @@ void RobotomyRequestForm::execute(Bureaucrat const& executor) const {
   std::cout << "wheeeeeeeee" << std::endl;
   std::cout << "wheeeeeeeeeeeee" << std::endl;
   std::cout << "wheeeeeeeeeeeeeeeeeeeeeee" << std::endl;
-  std::cout << getName() << " has been robotomized " << res << std::endl;
+  std::cout << getTarget() << " has been robotomized " << res << std::endl;
 }
 
 /*
