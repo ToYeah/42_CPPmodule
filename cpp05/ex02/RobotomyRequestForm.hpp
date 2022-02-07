@@ -22,6 +22,7 @@ class RobotomyRequestForm : public Form {
   static const int k_sign_grade;
   static const int k_execution_grade;
   static const std::string k_name;
+  static const std::string k_default_target;
   RobotomyRequestForm();
 };
 

@@ -7,6 +7,10 @@
 const int RobotomyRequestForm::k_sign_grade = 72;
 const int RobotomyRequestForm::k_execution_grade = 45;
 const std::string RobotomyRequestForm::k_name = "RobotomyRequestForm";
+const std::string RobotomyRequestForm::k_default_target = "RobotomyRequestForm";
+
+RobotomyRequestForm::RobotomyRequestForm()
+    : Form(k_name, k_default_target, k_sign_grade, k_execution_grade) {}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
     : Form(k_name, target, k_sign_grade, k_execution_grade) {}
