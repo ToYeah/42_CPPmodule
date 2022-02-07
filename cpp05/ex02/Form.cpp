@@ -60,11 +60,11 @@ const char* Form::signForm(Bureaucrat& bureaucrat) {
 
 bool Form::isExecutable(Bureaucrat const& executor) const {
   if (!is_signed_) {
-    throw new NotSignedException();
+    throw NotSignedException();
     return false;
   }
   if (execution_grade_ < executor.getGrade()) {
-    throw new GradeTooLowException();
+    throw GradeTooLowException();
     return false;
   }
   return true;
