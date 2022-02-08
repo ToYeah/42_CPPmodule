@@ -30,8 +30,10 @@ class Converter {
     M_INFF_FORMAT
   };
 
-  FormatTypes judgeArgumentFormat();
-  FormatTypes judgeNotNumberFormat();
+  static FormatTypes judgeArgumentFormat(std::string& val);
+  static FormatTypes judgeNotNumberFormat(std::string& val);
+  static bool isCharFormat(std::string& val);
+  static bool isPrintableChar(char c);
 
   const std::string original_value_;
   FormatTypes type_;
