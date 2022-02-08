@@ -17,14 +17,21 @@ class Converter {
 
  private:
   enum FormatTypes {
-    NONE,
+    NONE_FORMAT,
     CHAR_FORMAT,
     INT_FORMAT,
     FLOAT_FORMAT,
-    DOUBLE_FORMAT
+    DOUBLE_FORMAT,
+    NAN_FORMAT,
+    NANF_FORMAT,
+    P_INF_FORMAT,
+    P_INFF_FORMAT,
+    M_INF_FORMAT,
+    M_INFF_FORMAT
   };
 
   FormatTypes judgeArgumentFormat();
+  FormatTypes judgeNotNumberFormat();
 
   const std::string original_value_;
   FormatTypes type_;

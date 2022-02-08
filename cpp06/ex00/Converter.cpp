@@ -5,7 +5,8 @@
 */
 
 Converter::Converter() {}
-Converter::Converter(std::string value) : original_value_(value), type_(NONE) {
+Converter::Converter(std::string value)
+    : original_value_(value), type_(NONE_FORMAT) {
   type_ = judgeArgumentFormat();
 }
 
@@ -38,14 +39,25 @@ std::ostream& operator<<(std::ostream& o, Converter const& i) {
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
+Converter::FormatTypes Converter::judgeNotNumberFormat() {
+  const std::string special_values[] = {"nan",   "nanf", "+inf",
+                                        "+inff", "-inf", "-inff"};
+  const FormatTypes special_formats[] = {NAN_FORMAT,   NANF_FORMAT,
+                                         P_INF_FORMAT, P_INFF_FORMAT,
+                                         M_INF_FORMAT, M_INFF_FORMAT};
+  for (size_t i = 0; i < sizeof(special_values) / sizeof(std::string); i++) {
+    if (special_values[i] == original_value_) {
+      return special_formats[i];
+    }
+  }
+  return NONE_FORMAT;
+};
 
 Converter::FormatTypes Converter::judgeArgumentFormat() {
-  const std::string charactors = "0123456789+-.f";
-
-  for (size_t i = 0; i < original_value_.size(); i++) {
-    if (charactors.find(original_value_.at(i)) == std::string::npos) {
-      return NONE;  // charcheck
-    }
+  FormatTypes res = NONE_FORMAT;
+  res = judgeNotNumberFormat();
+  if (res != NONE_FORMAT) {
+    return res;
   }
   return INT_FORMAT;
 };
