@@ -45,5 +45,5 @@ bool isDigit(char c);
 size_t countNumStrLen(std::string val);
 void printIntFormat(std::string& val);
 void printConvertedValues(std::string& val, FormatTypes& type);
-
+void printCharFormat(std::string& val);
 #endif

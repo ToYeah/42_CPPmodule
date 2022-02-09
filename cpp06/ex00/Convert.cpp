@@ -31,6 +31,9 @@ bool isIntFormat(std::string& val) {
   if (val[index] == '+' || val[index] == '-') {
     index++;
   }
+  if (index == val.length()) {
+    return false;
+  }
   for (; index < val.length(); index++) {
     if (!isDigit(val[index])) {
       return false;
@@ -123,6 +126,9 @@ void printConvertedValues(std::string& val, FormatTypes& type) {
   switch (type) {
     case INT_FORMAT:
       printIntFormat(val);
+      break;
+    case CHAR_FORMAT:
+      printCharFormat(val);
       break;
 
     default:
