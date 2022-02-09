@@ -133,6 +133,10 @@ void printConvertedValues(std::string& val, FormatTypes& type) {
     case FLOAT_FORMAT:
       printFloatFormat(val);
       break;
+    case DOUBLE_FORMAT:
+      printDoubleFormat(val);
+      break;
+
     default:
       break;
   }

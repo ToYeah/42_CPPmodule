@@ -29,3 +29,11 @@ void printFloatFormat(std::string& val) {
 
   printValues(res_char_ptr, res_int_ptr, &res, &res_double);
 }
+
+bool isFloatRange(double& val) {
+  if (val >= std::numeric_limits<float>::min() &&
+      val <= std::numeric_limits<float>::max()) {
+    return true;
+  }
+  return false;
+}

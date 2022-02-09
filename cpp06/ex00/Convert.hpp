@@ -49,9 +49,11 @@ void printValues(char* c, int* i, float* f, double* d);
 void printIntFormat(std::string& val);
 void printCharFormat(std::string& val);
 void printFloatFormat(std::string& val);
+void printDoubleFormat(std::string& val);
 bool isCharRange(int& val);
 bool isCharRange(float& val);
 bool isCharRange(double& val);
 bool isIntRange(float& val);
 bool isIntRange(double& val);
+bool isFloatRange(double& val);
 #endif
