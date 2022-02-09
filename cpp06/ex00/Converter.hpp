@@ -34,6 +34,8 @@ class Converter {
   static FormatTypes judgeNotNumberFormat(std::string& val);
   static bool isCharFormat(std::string& val);
   static bool isPrintableChar(char c);
+  static bool isdigit(char c);
+  static bool isIntFormat(std::string& val);
 
   const std::string original_value_;
   FormatTypes type_;

@@ -61,7 +61,24 @@ bool Converter::isCharFormat(std::string& val) {
   return false;
 };
 
+bool Converter::isIntFormat(std::string& val) {
+  size_t index = 0;
+
+  if (val[index] == '+' || val[index] == '-') {
+    index++;
+  }
+  for (; index < val.length(); index++) {
+    if (!isdigit(val[index])) {
+      return false;
+    }
+  }
+  return true;
+};
+
 Converter::FormatTypes Converter::judgeArgumentFormat(std::string& val) {
+  if (isIntFormat(val)) {
+    return INT_FORMAT;
+  };
   if (isCharFormat(val)) {
     return CHAR_FORMAT;
   };
@@ -76,8 +93,16 @@ bool Converter::isPrintableChar(char c) {
   return false;
 }
 
+bool Converter::isdigit(char c) {
+  if (c >= '0' && c <= '9') {
+    return true;
+  }
+  return false;
+}
+
 /*
-** --------------------------------- ACCESSOR ---------------------------------
+** --------------------------------- ACCESSOR
+*---------------------------------
 */
 
 const std::string& Converter::getOriginalValue() const {
