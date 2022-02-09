@@ -75,12 +75,41 @@ bool Converter::isIntFormat(std::string& val) {
   return true;
 };
 
+bool Converter::isDoubleFormat(std::string& val) {
+  size_t index = 0;
+  size_t tmp = 0;
+
+  if (val[index] == '+' || val[index] == '-') {
+    index++;
+  }
+  if (val[index] == '.') {
+    return false;
+  }
+  tmp = countNumStrLen(val.substr(index));
+  if (tmp == 0) {
+    return false;
+  }
+  index += tmp;
+  if (val[index] != '.') {
+    return false;
+  }
+  index += 1;
+  index += countNumStrLen(val.substr(index));
+  if (index == val.length()) {
+    return true;
+  }
+  return false;
+}
+
 Converter::FormatTypes Converter::judgeArgumentFormat(std::string& val) {
   if (isIntFormat(val)) {
     return INT_FORMAT;
   };
   if (isCharFormat(val)) {
     return CHAR_FORMAT;
+  };
+  if (isDoubleFormat(val)) {
+    return DOUBLE_FORMAT;
   };
 
   return judgeNotNumberFormat(val);
@@ -100,6 +129,14 @@ bool Converter::isdigit(char c) {
   return false;
 }
 
+size_t Converter::countNumStrLen(std::string val) {
+  for (size_t i = 0; i < val.length(); i++) {
+    if (!isdigit(val[i])) {
+      return i;
+    }
+  }
+  return val.length();
+};
 /*
 ** --------------------------------- ACCESSOR
 *---------------------------------
