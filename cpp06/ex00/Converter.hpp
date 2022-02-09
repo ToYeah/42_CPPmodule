@@ -37,7 +37,7 @@ class Converter {
   static bool isDoubleFormat(std::string& val);
   static bool isFloatFormat(std::string& val);
   static bool isPrintableChar(char c);
-  static bool isdigit(char c);
+  static bool isDigit(char c);
   static size_t countNumStrLen(std::string val);
 
   const std::string original_value_;

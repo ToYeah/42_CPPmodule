@@ -68,7 +68,7 @@ bool Converter::isIntFormat(std::string& val) {
     index++;
   }
   for (; index < val.length(); index++) {
-    if (!isdigit(val[index])) {
+    if (!isDigit(val[index])) {
       return false;
     }
   }
@@ -139,7 +139,7 @@ bool Converter::isPrintableChar(char c) {
   return false;
 }
 
-bool Converter::isdigit(char c) {
+bool Converter::isDigit(char c) {
   if (c >= '0' && c <= '9') {
     return true;
   }
@@ -148,12 +148,13 @@ bool Converter::isdigit(char c) {
 
 size_t Converter::countNumStrLen(std::string val) {
   for (size_t i = 0; i < val.length(); i++) {
-    if (!isdigit(val[i])) {
+    if (!isDigit(val[i])) {
       return i;
     }
   }
   return val.length();
 };
+
 /*
 ** --------------------------------- ACCESSOR
 *---------------------------------
