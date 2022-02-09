@@ -1,16 +1,37 @@
 #include "Convert.hpp"
 
 void printCharFormat(std::string& val) {
-  char res;
-  res = val[0];
+  char res_char;
+  int res_int;
+  float res_float;
+  double res_double;
 
-  std::cout << CHAR_SUFFIX;
-  if (res >= PRINTABLE_MIN && res <= PRINTABLE_MAX) {
-    std::cout << "'" << res << "'" << std::endl;
-  } else {
-    std::cout << NON_PRINTABLE_STR << std::endl;
+  res_char = val[0];
+  res_int = static_cast<int>(res_char);
+  res_float = static_cast<float>(res_char);
+  res_double = static_cast<double>(res_char);
+
+  printValues(&res_char, &res_int, &res_float, &res_double);
+}
+
+bool isCharRange(float& val) {
+  if (val >= std::numeric_limits<char>::min() &&
+      val <= std::numeric_limits<char>::max()) {
+    return true;
   }
-  std::cout << INT_SUFFIX << static_cast<int>(res) << std::endl;
-  std::cout << FLOAT_SUFFIX << static_cast<float>(res) << std::endl;
-  std::cout << DOUBLE_SUFFIX << static_cast<double>(res) << std::endl;
+  return false;
+}
+bool isCharRange(int& val) {
+  if (val >= std::numeric_limits<char>::min() &&
+      val <= std::numeric_limits<char>::max()) {
+    return true;
+  }
+  return false;
+}
+bool isCharRange(double& val) {
+  if (val >= std::numeric_limits<char>::min() &&
+      val <= std::numeric_limits<char>::max()) {
+    return true;
+  }
+  return false;
 }

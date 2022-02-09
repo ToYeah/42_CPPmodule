@@ -13,15 +13,19 @@ int convertInt(std::string& val) {
 
 void printIntFormat(std::string& val) {
   int res;
-  res = convertInt(val);
+  char* res_char_ptr = NULL;
+  float* res_float_ptr = NULL;
+  double* res_double_ptr = NULL;
 
-  std::cout << CHAR_SUFFIX;
-  if (res >= PRINTABLE_MIN && res <= PRINTABLE_MAX) {
-    std::cout << "'" << static_cast<char>(res) << "'" << std::endl;
-  } else {
-    std::cout << NON_PRINTABLE_STR << std::endl;
+  res = convertInt(val);
+  if (isCharRange(res)) {
+    char res_char = static_cast<char>(res);
+    res_char_ptr = &res_char;
   }
-  std::cout << INT_SUFFIX << res << std::endl;
-  std::cout << FLOAT_SUFFIX << static_cast<float>(res) << std::endl;
-  std::cout << DOUBLE_SUFFIX << static_cast<double>(res) << std::endl;
+  float res_float = static_cast<float>(res);
+  res_float_ptr = &res_float;
+  double res_double = static_cast<double>(res);
+  res_double_ptr = &res_double;
+
+  printValues(res_char_ptr, &res, res_float_ptr, res_double_ptr);
 }

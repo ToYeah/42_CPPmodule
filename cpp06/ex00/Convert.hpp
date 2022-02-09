@@ -14,6 +14,7 @@
 #define PRINTABLE_MIN 32
 #define PRINTABLE_MAX 126
 #define NON_PRINTABLE_STR "Non displayable"
+#define IMPOSSIBLE "impossible"
 
 class UnknownLiteralException : public std::exception {
  public:
@@ -45,5 +46,10 @@ bool isDigit(char c);
 size_t countNumStrLen(std::string val);
 void printIntFormat(std::string& val);
 void printConvertedValues(std::string& val, FormatTypes& type);
+bool isCharRange(int& val);
+bool isCharRange(float& val);
+bool isCharRange(double& val);
 void printCharFormat(std::string& val);
+void printValues(char* c, int* i, float* f, double* d);
+
 #endif

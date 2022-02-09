@@ -135,3 +135,34 @@ void printConvertedValues(std::string& val, FormatTypes& type) {
       break;
   }
 }
+
+void printValues(char* c, int* i, float* f, double* d) {
+  std::cout << CHAR_SUFFIX;
+  if (c) {
+    if (*c >= PRINTABLE_MIN && *c <= PRINTABLE_MAX) {
+      std::cout << "'" << *c << "'" << std::endl;
+    } else {
+      std::cout << NON_PRINTABLE_STR << std::endl;
+    }
+  } else {
+    std::cout << IMPOSSIBLE << std::endl;
+  }
+
+  if (i) {
+    std::cout << INT_SUFFIX << *i << std::endl;
+  } else {
+    std::cout << IMPOSSIBLE << std::endl;
+  }
+
+  if (f) {
+    std::cout << FLOAT_SUFFIX << *f << "f" << std::endl;
+  } else {
+    std::cout << IMPOSSIBLE << std::endl;
+  }
+
+  if (d) {
+    std::cout << DOUBLE_SUFFIX << *d << std::endl;
+  } else {
+    std::cout << IMPOSSIBLE << std::endl;
+  }
+}
