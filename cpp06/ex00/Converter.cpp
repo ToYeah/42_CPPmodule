@@ -101,7 +101,21 @@ bool Converter::isDoubleFormat(std::string& val) {
   return false;
 }
 
+bool Converter::isFloatFormat(std::string& val) {
+  if (val[val.length() - 1] != 'f') {
+    return false;
+  }
+  std::string removed_str = val.substr(0, val.length() - 1);
+  if (isIntFormat(removed_str) || isDoubleFormat(removed_str)) {
+    return true;
+  }
+  return false;
+}
+
 Converter::FormatTypes Converter::judgeArgumentFormat(std::string& val) {
+  if (val.length() == 0) {
+    return NONE_FORMAT;
+  }
   if (isIntFormat(val)) {
     return INT_FORMAT;
   };
@@ -110,6 +124,9 @@ Converter::FormatTypes Converter::judgeArgumentFormat(std::string& val) {
   };
   if (isDoubleFormat(val)) {
     return DOUBLE_FORMAT;
+  };
+  if (isFloatFormat(val)) {
+    return FLOAT_FORMAT;
   };
 
   return judgeNotNumberFormat(val);
