@@ -11,6 +11,9 @@
 #define CHAR_SUFFIX "char: "
 #define FLOAT_SUFFIX "float: "
 #define DOUBLE_SUFFIX "double: "
+#define PRINTABLE_MIN 32
+#define PRINTABLE_MAX 126
+#define NON_PRINTABLE_STR "Non displayable"
 
 class UnknownLiteralException : public std::exception {
  public:
