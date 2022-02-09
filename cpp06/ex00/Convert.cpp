@@ -1,46 +1,6 @@
-#include "Converter.hpp"
+#include "Convert.hpp"
 
-/*
-** ------------------------------- CONSTRUCTOR --------------------------------
-*/
-
-Converter::Converter() {}
-Converter::Converter(std::string value)
-    : original_value_(value), type_(NONE_FORMAT) {
-  type_ = judgeArgumentFormat(value);
-}
-
-Converter::Converter(const Converter& src) { *this = src; }
-
-/*
-** -------------------------------- DESTRUCTOR --------------------------------
-*/
-
-Converter::~Converter() {}
-
-/*
-** --------------------------------- OVERLOAD ---------------------------------
-*/
-
-Converter& Converter::operator=(Converter const&) {
-  // if ( this != &rhs )
-  //{
-  // this->_value = rhs.getValue();
-  //}
-  return *this;
-}
-
-std::ostream& operator<<(std::ostream& o, Converter const& i) {
-  o << "Original: " << i.getOriginalValue() << std::endl;
-  o << "type: " << i.getType() << std::endl;
-  return o;
-}
-
-/*
-** --------------------------------- METHODS ----------------------------------
-*/
-
-Converter::FormatTypes Converter::judgeNotNumberFormat(std::string& val) {
+FormatTypes judgeNotNumberFormat(std::string& val) {
   const std::string special_values[] = {"nan",   "nanf", "+inf",
                                         "+inff", "-inf", "-inff"};
   const FormatTypes special_formats[] = {NAN_FORMAT,   NANF_FORMAT,
@@ -54,14 +14,14 @@ Converter::FormatTypes Converter::judgeNotNumberFormat(std::string& val) {
   return NONE_FORMAT;
 };
 
-bool Converter::isCharFormat(std::string& val) {
+bool isCharFormat(std::string& val) {
   if (val.length() == 1 && isPrintableChar(val[0])) {
     return true;
   }
   return false;
 };
 
-bool Converter::isIntFormat(std::string& val) {
+bool isIntFormat(std::string& val) {
   size_t index = 0;
 
   if (val[index] == '+' || val[index] == '-') {
@@ -75,7 +35,7 @@ bool Converter::isIntFormat(std::string& val) {
   return true;
 };
 
-bool Converter::isDoubleFormat(std::string& val) {
+bool isDoubleFormat(std::string& val) {
   size_t index = 0;
   size_t tmp = 0;
 
@@ -101,7 +61,7 @@ bool Converter::isDoubleFormat(std::string& val) {
   return false;
 }
 
-bool Converter::isFloatFormat(std::string& val) {
+bool isFloatFormat(std::string& val) {
   if (val[val.length() - 1] != 'f') {
     return false;
   }
@@ -112,7 +72,7 @@ bool Converter::isFloatFormat(std::string& val) {
   return false;
 }
 
-Converter::FormatTypes Converter::judgeArgumentFormat(std::string& val) {
+FormatTypes judgeArgumentFormat(std::string& val) {
   if (val.length() == 0) {
     return NONE_FORMAT;
   }
@@ -132,21 +92,21 @@ Converter::FormatTypes Converter::judgeArgumentFormat(std::string& val) {
   return judgeNotNumberFormat(val);
 };
 
-bool Converter::isPrintableChar(char c) {
+bool isPrintableChar(char c) {
   if (c >= 32 && c <= 126) {
     return true;
   }
   return false;
 }
 
-bool Converter::isDigit(char c) {
+bool isDigit(char c) {
   if (c >= '0' && c <= '9') {
     return true;
   }
   return false;
 }
 
-size_t Converter::countNumStrLen(std::string val) {
+size_t countNumStrLen(std::string val) {
   for (size_t i = 0; i < val.length(); i++) {
     if (!isDigit(val[i])) {
       return i;
@@ -154,15 +114,3 @@ size_t Converter::countNumStrLen(std::string val) {
   }
   return val.length();
 };
-
-/*
-** --------------------------------- ACCESSOR
-*---------------------------------
-*/
-
-const std::string& Converter::getOriginalValue() const {
-  return original_value_;
-};
-int Converter::getType() const { return static_cast<int>(type_); };
-
-/* ************************************************************************** */
