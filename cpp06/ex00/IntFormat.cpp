@@ -14,8 +14,6 @@ int convertInt(std::string& val) {
 void printIntFormat(std::string& val) {
   int res;
   char* res_char_ptr = NULL;
-  float* res_float_ptr = NULL;
-  double* res_double_ptr = NULL;
 
   res = convertInt(val);
   if (isCharRange(res)) {
@@ -23,9 +21,23 @@ void printIntFormat(std::string& val) {
     res_char_ptr = &res_char;
   }
   float res_float = static_cast<float>(res);
-  res_float_ptr = &res_float;
   double res_double = static_cast<double>(res);
-  res_double_ptr = &res_double;
 
-  printValues(res_char_ptr, &res, res_float_ptr, res_double_ptr);
+  printValues(res_char_ptr, &res, &res_float, &res_double);
+}
+
+bool isIntRange(float& val) {
+  if (val >= std::numeric_limits<int>::min() &&
+      val <= std::numeric_limits<int>::max()) {
+    return true;
+  }
+  return false;
+}
+
+bool isIntRange(double& val) {
+  if (val >= std::numeric_limits<int>::min() &&
+      val <= std::numeric_limits<int>::max()) {
+    return true;
+  }
+  return false;
 }

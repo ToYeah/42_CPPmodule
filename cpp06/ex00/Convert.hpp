@@ -44,12 +44,14 @@ bool isFloatFormat(std::string& val);
 bool isPrintableChar(char c);
 bool isDigit(char c);
 size_t countNumStrLen(std::string val);
-void printIntFormat(std::string& val);
 void printConvertedValues(std::string& val, FormatTypes& type);
+void printValues(char* c, int* i, float* f, double* d);
+void printIntFormat(std::string& val);
+void printCharFormat(std::string& val);
+void printFloatFormat(std::string& val);
 bool isCharRange(int& val);
 bool isCharRange(float& val);
 bool isCharRange(double& val);
-void printCharFormat(std::string& val);
-void printValues(char* c, int* i, float* f, double* d);
-
+bool isIntRange(float& val);
+bool isIntRange(double& val);
 #endif
