@@ -1,5 +1,9 @@
 #include "Convert.hpp"
 
+const char* UnknownLiteralException::what() const throw() {
+  return "Unknown literal!";
+};
+
 FormatTypes judgeNotNumberFormat(std::string& val) {
   const std::string special_values[] = {"nan",   "nanf", "+inf",
                                         "+inff", "-inf", "-inff"};
@@ -114,3 +118,14 @@ size_t countNumStrLen(std::string val) {
   }
   return val.length();
 };
+
+void printConvertedValues(std::string& val, FormatTypes& type) {
+  switch (type) {
+    case INT_FORMAT:
+      printIntFormat(val);
+      break;
+
+    default:
+      break;
+  }
+}

@@ -1,8 +1,21 @@
 #ifndef CONVERT_HPP
 #define CONVERT_HPP
 
+#include <cerrno>
+#include <cstdlib>
 #include <iostream>
+#include <limits>
 #include <string>
+
+#define INT_SUFFIX "int: "
+#define CHAR_SUFFIX "char: "
+#define FLOAT_SUFFIX "float: "
+#define DOUBLE_SUFFIX "double: "
+
+class UnknownLiteralException : public std::exception {
+ public:
+  const char* what() const throw();
+};
 
 enum FormatTypes {
   NONE_FORMAT,
@@ -27,5 +40,7 @@ bool isFloatFormat(std::string& val);
 bool isPrintableChar(char c);
 bool isDigit(char c);
 size_t countNumStrLen(std::string val);
+void printIntFormat(std::string& val);
+void printConvertedValues(std::string& val, FormatTypes& type);
 
 #endif
