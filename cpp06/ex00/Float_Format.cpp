@@ -4,10 +4,6 @@ float convertFloat(std::string& val) {
   double res;
   errno = 0;
   res = strtod(val.c_str(), NULL);
-  if (res < std::numeric_limits<float>::min() ||
-      res > std::numeric_limits<float>::max() || errno == ERANGE) {
-    throw ImpossibleException();
-  }
   return static_cast<float>(res);
 }
 
