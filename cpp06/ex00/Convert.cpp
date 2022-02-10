@@ -19,7 +19,6 @@ FormatTypes judgeNotNumberFormat(std::string& val) {
 };
 
 bool isCharFormat(std::string& val) {
-  std::cout << val << "|" << val.length() << std::endl;
   if (val.length() == 1) {
     return true;
   }
