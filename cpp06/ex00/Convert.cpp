@@ -174,13 +174,24 @@ void printValues(char* c, int* i, float* f, double* d) {
   }
   std::cout << FLOAT_SUFFIX;
   if (f) {
-    std::cout << *f << "f" << std::endl;
+    std::cout << *f;
+    int tmp = static_cast<int>(*f);
+    if (*f - static_cast<float>(tmp) == 0) {
+      std::cout << ".0";
+    }
+    std::cout << "f" << std::endl;
   } else {
     std::cout << IMPOSSIBLE << std::endl;
   }
+
   std::cout << DOUBLE_SUFFIX;
   if (d) {
-    std::cout << *d << std::endl;
+    std::cout << *d;
+    int tmp = static_cast<int>(*d);
+    if (*d - static_cast<double>(tmp) == 0) {
+      std::cout << ".0";
+    }
+    std::cout << std::endl;
   } else {
     std::cout << IMPOSSIBLE << std::endl;
   }
