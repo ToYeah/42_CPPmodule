@@ -9,7 +9,6 @@ int main(int argc, char** argv) {
     std::string original_value = argv[1];
 
     FormatTypes type = judgeArgumentFormat(original_value);
-    std::cout << type << std::endl;
     printConvertedValues(original_value, type);
   } catch (const std::exception& e) {
     printValues(NULL, NULL, NULL, NULL);
