@@ -16,7 +16,7 @@
 #define NON_PRINTABLE_STR "Non displayable"
 #define IMPOSSIBLE "impossible"
 
-class UnknownLiteralException : public std::exception {
+class ImpossibleException : public std::exception {
  public:
   const char* what() const throw();
 };

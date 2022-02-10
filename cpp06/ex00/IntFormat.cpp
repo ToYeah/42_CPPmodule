@@ -6,7 +6,7 @@ int convertInt(std::string& val) {
   res = strtol(val.c_str(), NULL, 10);
   if (res < std::numeric_limits<int>::min() ||
       res > std::numeric_limits<int>::max() || errno == ERANGE) {
-    throw UnknownLiteralException();
+    throw ImpossibleException();
   }
   return static_cast<int>(res);
 }

@@ -1,6 +1,6 @@
 #include "Convert.hpp"
 
-const char* UnknownLiteralException::what() const throw() {
+const char* ImpossibleException::what() const throw() {
   return "Unknown literal!";
 };
 
@@ -154,20 +154,21 @@ void printValues(char* c, int* i, float* f, double* d) {
     std::cout << IMPOSSIBLE << std::endl;
   }
 
+  std::cout << INT_SUFFIX;
   if (i) {
-    std::cout << INT_SUFFIX << *i << std::endl;
+    std::cout << *i << std::endl;
   } else {
     std::cout << IMPOSSIBLE << std::endl;
   }
-
+  std::cout << FLOAT_SUFFIX;
   if (f) {
-    std::cout << FLOAT_SUFFIX << *f << "f" << std::endl;
+    std::cout << *f << "f" << std::endl;
   } else {
     std::cout << IMPOSSIBLE << std::endl;
   }
-
+  std::cout << DOUBLE_SUFFIX;
   if (d) {
-    std::cout << DOUBLE_SUFFIX << *d << std::endl;
+    std::cout << *d << std::endl;
   } else {
     std::cout << IMPOSSIBLE << std::endl;
   }

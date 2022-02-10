@@ -12,6 +12,6 @@ int main(int argc, char** argv) {
     std::cout << type << std::endl;
     printConvertedValues(original_value, type);
   } catch (const std::exception& e) {
-    std::cerr << e.what() << '\n';
+    printValues(NULL, NULL, NULL, NULL);
   }
 }

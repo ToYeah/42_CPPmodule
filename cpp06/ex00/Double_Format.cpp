@@ -5,7 +5,7 @@ double convertDouble(std::string& val) {
   errno = 0;
   res = strtod(val.c_str(), NULL);
   if (errno == ERANGE) {
-    throw UnknownLiteralException();
+    throw ImpossibleException();
   }
   return static_cast<float>(res);
 }

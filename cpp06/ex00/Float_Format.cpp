@@ -6,7 +6,7 @@ float convertFloat(std::string& val) {
   res = strtod(val.c_str(), NULL);
   if (res < std::numeric_limits<float>::min() ||
       res > std::numeric_limits<float>::max() || errno == ERANGE) {
-    throw UnknownLiteralException();
+    throw ImpossibleException();
   }
   return static_cast<float>(res);
 }
