@@ -33,7 +33,6 @@ Fixed::~Fixed() {}
 */
 
 Fixed& Fixed::operator=(Fixed const& rhs) {
-  std::cout << "Assignation operator called" << std::endl;
   if (this != &rhs) {
     this->value_ = rhs.getRawBits();
   }

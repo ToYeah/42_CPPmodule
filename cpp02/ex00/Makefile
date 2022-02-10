@@ -1,5 +1,5 @@
 NAME			:= fixed
-CXX				:= clang++
+CXX				:= c++
 CXXFLAGS		:= -Wall -Wextra -Werror -MMD -MP -std=c++98
 SRCSDIR			:= .
 OBJSDIR			:= objs
