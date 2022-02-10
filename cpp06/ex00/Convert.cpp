@@ -136,8 +136,21 @@ void printConvertedValues(std::string& val, FormatTypes& type) {
     case DOUBLE_FORMAT:
       printDoubleFormat(val);
       break;
+    case NAN_FORMAT:
+    case NANF_FORMAT:
+      printNanFormat();
+      break;
+    case P_INF_FORMAT:
+    case P_INFF_FORMAT:
+      printPInfFormat();
+      break;
+    case M_INF_FORMAT:
+    case M_INFF_FORMAT:
+      printMInfFormat();
+      break;
 
     default:
+
       break;
   }
 }
