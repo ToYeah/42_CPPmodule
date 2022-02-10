@@ -7,7 +7,7 @@ double convertDouble(std::string& val) {
   if (errno == ERANGE) {
     throw ImpossibleException();
   }
-  return static_cast<float>(res);
+  return static_cast<double>(res);
 }
 
 void printDoubleFormat(std::string& val) {
