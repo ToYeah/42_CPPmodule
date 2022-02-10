@@ -14,7 +14,6 @@ void printDoubleFormat(std::string& val) {
   double res;
   char* res_char_ptr = NULL;
   int* res_int_ptr = NULL;
-  float* res_float_ptr = NULL;
 
   res = convertDouble(val);
   if (isCharRange(res)) {
@@ -25,10 +24,7 @@ void printDoubleFormat(std::string& val) {
     int res_int = static_cast<int>(res);
     res_int_ptr = &res_int;
   }
-  if (isFloatRange(res)) {
-    float res_float = static_cast<float>(res);
-    res_float_ptr = &res_float;
-  };
+  float res_float = static_cast<float>(res);
 
-  printValues(res_char_ptr, res_int_ptr, res_float_ptr, &res);
+  printValues(res_char_ptr, res_int_ptr, &res_float, &res);
 }
