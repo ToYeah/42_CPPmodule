@@ -148,9 +148,8 @@ void printConvertedValues(std::string& val, FormatTypes& type) {
     case M_INFF_FORMAT:
       printMInfFormat();
       break;
-
     default:
-
+      printValues(NULL, NULL, NULL, NULL);
       break;
   }
 }
