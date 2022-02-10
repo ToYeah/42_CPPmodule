@@ -4,16 +4,17 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Fixed::Fixed() {}
+Fixed::Fixed() : value_(0) {}
 
 Fixed::Fixed(const int src) {
   int sign = INT_MAX | src;
-  int value = (src << Fixed::k_fractional_bit_size) & -256;
+  int value = (src * (1 << k_fractional_bit_size)) &
+              ((1 << k_fractional_bit_size) * -1);
   setRawBits(sign & value);
 }
 
 Fixed::Fixed(const float src) {
-  setRawBits(roundf((src) * (1 << Fixed::k_fractional_bit_size)));
+  setRawBits(roundf((src) * (1 << k_fractional_bit_size)));
 }
 
 Fixed::Fixed(const Fixed& src) {
@@ -82,7 +83,7 @@ Fixed Fixed::operator*(Fixed const& rhs) {
 
   long long calc_result = this->value_ * rhs.value_;
   int sign = calc_result < 0 ? INT_MIN : 0;
-  result.value_ = static_cast<int>(calc_result >> 8);
+  result.value_ = static_cast<int>(calc_result / (1 << k_fractional_bit_size));
   result.value_ = result.value_ | sign;
 
   return result;
@@ -136,12 +137,10 @@ std::ostream& operator<<(std::ostream& o, Fixed const& i) {
 */
 
 float Fixed::toFloat(void) const {
-  return static_cast<float>(getRawBits()) / (1 << 8);
+  return static_cast<float>(getRawBits()) / (1 << k_fractional_bit_size);
 }
 
-int Fixed::toInt(void) const {
-  return (getRawBits() >> Fixed::k_fractional_bit_size);
-}
+int Fixed::toInt(void) const { return (getRawBits() >> k_fractional_bit_size); }
 
 Fixed& Fixed::max(Fixed& a, Fixed& b) {
   if (a >= b) {
