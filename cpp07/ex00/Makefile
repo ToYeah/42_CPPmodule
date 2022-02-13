@@ -1,4 +1,4 @@
-NAME			:= identify
+NAME			:= whatever
 CXX				:= clang++
 CXXFLAGS		:= -Wall -Wextra -Werror -MMD -MP -std=c++98
 SRCSDIR			:= .
