@@ -35,6 +35,7 @@ Array<T>::Array(unsigned int len) {
 
 template <typename T>
 Array<T>::Array(Array const& src) {
+  this->value_ = NULL;
   *this = src;
 }
 
@@ -60,7 +61,7 @@ template <typename T>
 Array<T>& Array<T>::operator=(Array const& rhs) {
   if (this != &rhs) {
     delete[] this->value_;
-    this->value_ = new T[rhs.size_];
+    this->value_ = new T[rhs.size_]();
     for (size_t i = 0; i < rhs.size_; i++) {
       this->value_[i] = rhs.value_[i];
     }

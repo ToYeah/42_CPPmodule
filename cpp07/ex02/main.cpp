@@ -28,7 +28,8 @@ int main(void) {
     std::cout << "int_array2[" << i << "]: " << int_array2[i] << std::endl;
   }
 
-  Array<int> int_array3 = Array<int>(int_array2);
+  Array<int> int_array3 = Array<int>(3);
+  int_array3 = Array<int>(int_array2);
 
   int_array3[0] = 4;
   int_array3[1] = 5;
