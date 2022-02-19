@@ -93,7 +93,7 @@ Fixed Fixed::operator/(Fixed const& rhs) {
   Fixed result;
 
   long lhs_value =
-      static_cast<long>(this->value_) * (1 << Fixed::k_fractional_bit_size);
+      static_cast<long>(this->value_) * (1 << k_fractional_bit_size);
   long rhs_value = static_cast<long>(rhs.value_);
   long calc_result = lhs_value / rhs_value;
   result.value_ = static_cast<int>(calc_result);
