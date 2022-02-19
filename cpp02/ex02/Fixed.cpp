@@ -81,7 +81,7 @@ Fixed Fixed::operator-(Fixed const& rhs) {
 Fixed Fixed::operator*(Fixed const& rhs) {
   Fixed result;
 
-  long long calc_result = this->value_ * rhs.value_;
+  long calc_result = this->value_ * rhs.value_;
   int sign = calc_result < 0 ? INT_MIN : 0;
   result.value_ = static_cast<int>(calc_result / (1 << k_fractional_bit_size));
   result.value_ = result.value_ | sign;
@@ -92,10 +92,10 @@ Fixed Fixed::operator*(Fixed const& rhs) {
 Fixed Fixed::operator/(Fixed const& rhs) {
   Fixed result;
 
-  long long lhs_value = static_cast<long long>(this->value_) *
-                        (1 << Fixed::k_fractional_bit_size);
-  long long rhs_value = static_cast<long long>(rhs.value_);
-  long long calc_result = lhs_value / rhs_value;
+  long lhs_value =
+      static_cast<long>(this->value_) * (1 << Fixed::k_fractional_bit_size);
+  long rhs_value = static_cast<long>(rhs.value_);
+  long calc_result = lhs_value / rhs_value;
   result.value_ = static_cast<int>(calc_result);
 
   return result;
