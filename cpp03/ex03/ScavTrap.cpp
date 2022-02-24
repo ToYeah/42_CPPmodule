@@ -3,11 +3,14 @@
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
+ScavTrap::ScavTrap() : ClapTrap() {
+  std::cout << "ScavTrap \"" << getName() << "\" was born.(DefaultConstructor)"
+            << std::endl;
+}
 
 ScavTrap::ScavTrap(std::string name)
-    : ClapTrap(name, ScavTrap::k_default_hit_points,
-               ScavTrap::k_default_energy_points_,
-               ScavTrap::k_default_attack_damage_) {
+    : ClapTrap(name, k_default_hit_points, k_default_energy_points_,
+               k_default_attack_damage_) {
   std::cout << "ScavTrap \"" << name << "\" was born." << std::endl;
 }
 

@@ -4,6 +4,10 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
+DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap(), name_("none") {
+  std::cout << "DiamondTrap \"" << getName() << "\" was born." << std::endl;
+}
+
 DiamondTrap::DiamondTrap(std::string name)
     : ClapTrap(name + "_clap_name", FragTrap::k_default_hit_points,
                ScavTrap::k_default_energy_points_,

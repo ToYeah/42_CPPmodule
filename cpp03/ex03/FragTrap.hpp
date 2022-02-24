@@ -18,12 +18,11 @@ class FragTrap : virtual public ClapTrap {
   void highFivesGuys(void);
 
  protected:
+  FragTrap();
   static const size_t k_default_hit_points = 100;
   static const size_t k_default_attack_damage_ = 30;
 
  private:
-  FragTrap();
-
   static const size_t k_default_energy_points_ = 100;
 };
 

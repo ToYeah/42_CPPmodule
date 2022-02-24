@@ -18,11 +18,10 @@ class ScavTrap : virtual public ClapTrap {
   void guardGate();
 
  protected:
+  ScavTrap();
   static const size_t k_default_energy_points_ = 50;
 
  private:
-  ScavTrap();
-
   static const size_t k_default_hit_points = 100;
   static const size_t k_default_attack_damage_ = 20;
 };
