@@ -3,6 +3,10 @@
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
+ClapTrap::ClapTrap()
+    : name_("none"), hit_points_(0), energy_points_(0), attack_damage_(0) {
+  std::cout << "ClapTrap was born.(DefaultConstructor)" << std::endl;
+}
 
 ClapTrap::ClapTrap(std::string name)
     : name_(name),
