@@ -4,6 +4,8 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
+AMateria::AMateria() : type_("none") {}
+
 AMateria::AMateria(std::string const& type) : type_(type) {}
 
 AMateria::AMateria(const AMateria& src) { *this = src; }

@@ -4,6 +4,12 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
+Character::Character() : name_("none"), index_(0) {
+  for (size_t i = 0; i < k_max_materias_size; i++) {
+    materias_[i] = NULL;
+  }
+};
+
 Character::Character(std::string name) : name_(name), index_(0) {
   for (size_t i = 0; i < k_max_materias_size; i++) {
     materias_[i] = NULL;
