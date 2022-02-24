@@ -23,12 +23,11 @@ class ClapTrap {
   int getAttackDamage() const;
 
  protected:
+  ClapTrap();
   ClapTrap(std::string name, int hit_points, int energy_points,
            int attack_damage);
 
  private:
-  ClapTrap();
-
   std::string name_;
   int hit_points_;
   int energy_points_;

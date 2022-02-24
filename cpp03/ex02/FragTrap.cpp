@@ -3,11 +3,14 @@
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
+FragTrap::FragTrap() : ClapTrap() {
+  std::cout << "FragTrap \"" << getName() << "\" was born.(DefaultConstructor)"
+            << std::endl;
+}
 
 FragTrap::FragTrap(std::string name)
-    : ClapTrap(name, FragTrap::k_default_hit_points,
-               FragTrap::k_default_energy_points_,
-               FragTrap::k_default_attack_damage_) {
+    : ClapTrap(name, k_default_hit_points, k_default_energy_points_,
+               k_default_attack_damage_) {
   std::cout << "FragTrap \"" << name << "\" was born." << std::endl;
 }
 
