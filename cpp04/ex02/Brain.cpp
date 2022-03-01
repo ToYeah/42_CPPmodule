@@ -27,7 +27,7 @@ Brain::~Brain() { std::cout << "Brain destructor executed" << std::endl; }
 
 Brain& Brain::operator=(Brain const& rhs) {
   if (this != &rhs) {
-    for (size_t i = 0; i < 100; i++) {
+    for (size_t i = 0; i < k_idea_max_size; i++) {
       this->ideas[i] = rhs.ideas[i];
     }
     this->index = rhs.index;
@@ -43,17 +43,17 @@ Brain& Brain::operator=(Brain const& rhs) {
 void Brain::showIdeas() const {
   std::cout << "-----IDEAS-----" << std::endl;
   for (size_t i = 0; i < idea_size; i++) {
-    std::cout << this->ideas[i] << std::endl;
+    std::cout << ideas[i] << std::endl;
   }
   std::cout << "---------------" << std::endl;
 };
 
 void Brain::setIdea(std::string& idea) {
-  this->ideas[index] = idea;
-  this->index = this->index + 1 == Brain::k_idea_max_size ? 0 : this->index + 1;
-  this->idea_size = this->index + 1 == Brain::k_idea_max_size
-                        ? Brain::k_idea_max_size
-                        : idea_size + 1;
+  ideas[index] = idea;
+
+  bool is_max_index = index + 1 == k_idea_max_size;
+  index = is_max_index ? 0 : index + 1;
+  idea_size = is_max_index ? k_idea_max_size : idea_size + 1;
 }
 
 /*
