@@ -17,13 +17,16 @@ int main() {
   std::cout << "\n////////////////////////////////\n" << std::endl;
 
   const WrongAnimal* wrong_meta = new WrongAnimal();
-  const WrongAnimal* wrong_cat = new WrongCat();
+  const WrongCat* wrong_cat = new WrongCat();
 
   std::cout << wrong_meta->getType() << std::endl;
   std::cout << wrong_cat->getType() << std::endl;
 
   wrong_meta->makeSound();
   wrong_cat->makeSound();
+
+  const WrongAnimal* wrong_cat_animal = wrong_cat;
+  wrong_cat_animal->makeSound();
 
   std::cout << "\n////////////////////////////////\n" << std::endl;
 
