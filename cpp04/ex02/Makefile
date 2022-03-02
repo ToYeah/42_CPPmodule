@@ -1,5 +1,5 @@
 NAME			:= animal
-CXX				:= clang++
+CXX				:= c++
 CXXFLAGS		:= -Wall -Wextra -Werror -MMD -MP -std=c++98
 SRCSDIR			:= .
 OBJSDIR			:= objs
@@ -8,6 +8,12 @@ INCLUDES		:= $(shell find $(SRCSDIR) -type d | awk '{print "-I " $$0}')
 VPATH			:= $(shell find $(SRCSDIR) -type d | awk '{print $$0":"}')
 OBJS			:= $(SRCS:%.cpp=$(OBJSDIR)/%.o)
 DEPENDS			:= $(OBJS:.o=.d);
+
+UNAME			:= $(shell uname)
+
+ifeq ($(UNAME), Linux)
+	CXX	:= clang++
+endif
 
 all: $(NAME)
 
