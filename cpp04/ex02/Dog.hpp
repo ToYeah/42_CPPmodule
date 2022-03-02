@@ -11,7 +11,7 @@ class Dog : public Animal {
  public:
   Dog();
   Dog(Dog const& src);
-  ~Dog();
+  virtual ~Dog();
 
   Dog& operator=(Dog const& rhs);
 
