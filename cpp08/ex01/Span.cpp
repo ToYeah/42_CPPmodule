@@ -39,13 +39,13 @@ void Span::addNumber(int num) {
   vector_.push_back(num);
 };
 
-int Span::calcAbs(int lhs, int rhs) {
+unsigned int Span::calcAbs(int lhs, int rhs) {
   int res = lhs - rhs;
 
   if (lhs >= rhs) {
     return res;
   } else {
-    return -res;
+    return -1 * res;
   }
 }
 
@@ -56,15 +56,15 @@ bool Span::hasCalculableSize() {
   return true;
 }
 
-int Span::shortestSpan() {
+unsigned int Span::shortestSpan() {
   hasCalculableSize();
 
-  int res = calcAbs(vector_[0], vector_[1]);
+  unsigned int res = calcAbs(vector_[0], vector_[1]);
   for (std::vector<int>::iterator lhs_it = this->vector_.begin();
        lhs_it != this->vector_.end(); lhs_it++) {
     for (std::vector<int>::iterator rhs_it = lhs_it + 1;
          rhs_it != this->vector_.end(); rhs_it++) {
-      int calc_res = calcAbs(*lhs_it, *rhs_it);
+      unsigned int calc_res = calcAbs(*lhs_it, *rhs_it);
       if (res > calc_res) res = calc_res;
     }
   }
@@ -72,7 +72,7 @@ int Span::shortestSpan() {
   return res;
 };
 
-int Span::longestSpan() {
+unsigned int Span::longestSpan() {
   hasCalculableSize();
 
   std::vector<int>::iterator max_itr =
@@ -80,7 +80,7 @@ int Span::longestSpan() {
   std::vector<int>::iterator min_itr =
       std::min_element(vector_.begin(), vector_.end());
 
-  return *max_itr - *min_itr;
+  return calcAbs(*max_itr, *min_itr);
 };
 
 /*

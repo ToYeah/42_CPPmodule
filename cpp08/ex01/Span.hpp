@@ -14,14 +14,14 @@ class Span {
   Span& operator=(Span const& rhs);
 
   void addNumber(int num);
-  int shortestSpan();
-  int longestSpan();
+  unsigned int shortestSpan();
+  unsigned int longestSpan();
 
  private:
   std::vector<int> vector_;
   unsigned int size_;
 
-  int calcAbs(int lhs, int rhs);
+  unsigned int calcAbs(int lhs, int rhs);
   bool hasCalculableSize();
   Span();
 };
