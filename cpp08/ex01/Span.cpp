@@ -6,7 +6,7 @@
 
 Span::Span() : size_(0) {}
 
-Span::Span(unsigned int N) : size_(N) {}
+Span::Span(unsigned int N) : size_(N) { vector_.reserve(N); }
 
 Span::Span(const Span& src) { *this = src; }
 
