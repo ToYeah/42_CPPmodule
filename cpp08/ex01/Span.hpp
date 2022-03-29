@@ -2,7 +2,7 @@
 #define SPAN_HPP
 
 #include <algorithm>
-#include <iostream>
+#include <exception>
 #include <vector>
 
 class Span {
@@ -22,12 +22,21 @@ class Span {
   unsigned int shortestSpan();
   unsigned int longestSpan();
 
+  class NotEnoughCapacityException : public std::exception {
+   public:
+    const char* what() const throw();
+  };
+
+  class UncalculableSizeException : public std::exception {
+   public:
+    const char* what() const throw();
+  };
+
  private:
   vec_type vector_;
   unsigned int size_;
 
   unsigned int calcAbs(int lhs, int rhs);
-  bool hasCalculableSize();
   Span();
 };
 

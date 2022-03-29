@@ -32,9 +32,15 @@ Span& Span::operator=(Span const& rhs) {
 ** --------------------------------- METHODS ----------------------------------
 */
 
+const char* Span::NotEnoughCapacityException::what() const throw() {
+  return "This instance has not enough capacity.";
+}
+const char* Span::UncalculableSizeException::what() const throw() {
+  return "This instance has not enough size.";
+}
 void Span::addNumber(int num) {
   if (vector_.size() == size_) {
-    throw std::length_error("Span class is full.");
+    throw NotEnoughCapacityException();
   }
   vector_.push_back(num);
 };
@@ -42,7 +48,7 @@ void Span::addNumber(int num) {
 void Span::addNumber(vec_it start, vec_it end) {
   vec_type::difference_type distance = std::distance(start, end);
   if (vector_.size() + distance > size_) {
-    throw std::length_error("Span class hasn't enough capacity.");
+    throw NotEnoughCapacityException();
   }
 
   for (vec_it it = start; it != end; it++) {
@@ -59,15 +65,10 @@ unsigned int Span::calcAbs(int lhs, int rhs) {
   }
 }
 
-bool Span::hasCalculableSize() {
-  if (vector_.size() < 2) {
-    throw std::runtime_error("Span class has not enough elements.");
-  }
-  return true;
-}
-
 unsigned int Span::shortestSpan() {
-  hasCalculableSize();
+  if (vector_.size() < 2) {
+    throw UncalculableSizeException();
+  }
 
   unsigned int res = calcAbs(vector_[0], vector_[1]);
   for (std::vector<int>::iterator lhs_it = this->vector_.begin();
@@ -83,7 +84,9 @@ unsigned int Span::shortestSpan() {
 };
 
 unsigned int Span::longestSpan() {
-  hasCalculableSize();
+  if (vector_.size() < 2) {
+    throw UncalculableSizeException();
+  }
 
   std::vector<int>::iterator max_itr =
       std::max_element(vector_.begin(), vector_.end());
