@@ -3,7 +3,6 @@
 
 #include <algorithm>
 #include <iostream>
-#include <string>
 #include <vector>
 
 class Span {
@@ -22,6 +21,8 @@ class Span {
   std::vector<int> vector_;
   unsigned int size_;
 
+  int calcAbs(int lhs, int rhs);
+  bool hasCalculableSize();
   Span();
 };
 

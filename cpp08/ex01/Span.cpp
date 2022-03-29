@@ -23,6 +23,7 @@ Span::~Span() {}
 Span& Span::operator=(Span const& rhs) {
   if (this != &rhs) {
     this->size_ = rhs.size_;
+    this->vector_ = rhs.vector_;
   }
   return *this;
 }
@@ -38,10 +39,41 @@ void Span::addNumber(int num) {
   vector_.push_back(num);
 };
 
-int Span::shortestSpan() { return 0; };
+int Span::calcAbs(int lhs, int rhs) {
+  int res = lhs - rhs;
+
+  if (lhs >= rhs) {
+    return res;
+  } else {
+    return -res;
+  }
+}
+
+bool Span::hasCalculableSize() {
+  if (vector_.size() < 2) {
+    throw std::runtime_error("Span class has not enough elements.");
+  }
+  return true;
+}
+
+int Span::shortestSpan() {
+  hasCalculableSize();
+
+  int res = calcAbs(vector_[0], vector_[1]);
+  for (std::vector<int>::iterator lhs_it = this->vector_.begin();
+       lhs_it != this->vector_.end(); lhs_it++) {
+    for (std::vector<int>::iterator rhs_it = lhs_it + 1;
+         rhs_it != this->vector_.end(); rhs_it++) {
+      int calc_res = calcAbs(*lhs_it, *rhs_it);
+      if (res > calc_res) res = calc_res;
+    }
+  }
+
+  return res;
+};
 
 int Span::longestSpan() {
-  if (vector_.size() == 0) return 0;
+  hasCalculableSize();
 
   std::vector<int>::iterator max_itr =
       std::max_element(vector_.begin(), vector_.end());
