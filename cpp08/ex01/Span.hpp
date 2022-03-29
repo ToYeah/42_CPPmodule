@@ -6,6 +6,10 @@
 #include <vector>
 
 class Span {
+ private:
+  typedef std::vector<int> vec_type;
+  typedef vec_type::iterator vec_it;
+
  public:
   Span(unsigned int N);
   Span(Span const& src);
@@ -14,11 +18,12 @@ class Span {
   Span& operator=(Span const& rhs);
 
   void addNumber(int num);
+  void addNumber(vec_it start, vec_it end);
   unsigned int shortestSpan();
   unsigned int longestSpan();
 
  private:
-  std::vector<int> vector_;
+  vec_type vector_;
   unsigned int size_;
 
   unsigned int calcAbs(int lhs, int rhs);

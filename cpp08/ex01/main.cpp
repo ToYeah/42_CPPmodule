@@ -79,4 +79,26 @@ int main() {
   } catch (const std::exception& e) {
     std::cerr << e.what() << '\n';
   }
+
+  std::cout << "-----------------" << std::endl;
+  std::cout << "add number from iterator test" << std::endl;
+
+  Span it_span = Span(5);
+
+  std::vector<int> test_vec;
+  test_vec.push_back(0);
+  test_vec.push_back(10);
+  test_vec.push_back(100);
+
+  it_span.addNumber(test_vec.begin(), test_vec.end());
+  std::cout << it_span.shortestSpan() << std::endl;
+  std::cout << it_span.longestSpan() << std::endl;
+
+  std::cout << "-----------------" << std::endl;
+  std::cout << "length error from iterator test" << std::endl;
+  try {
+    it_span.addNumber(test_vec.begin(), test_vec.end());
+  } catch (const std::exception& e) {
+    std::cerr << e.what() << '\n';
+  }
 }

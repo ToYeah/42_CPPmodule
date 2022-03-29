@@ -39,6 +39,16 @@ void Span::addNumber(int num) {
   vector_.push_back(num);
 };
 
+void Span::addNumber(vec_it start, vec_it end) {
+  vec_type::difference_type distance = std::distance(start, end);
+  if (vector_.size() + distance > size_) {
+    throw std::length_error("Span class hasn't enough capacity.");
+  }
+
+  for (vec_it it = start; it != end; it++) {
+    vector_.push_back(*it);
+  }
+}
 unsigned int Span::calcAbs(int lhs, int rhs) {
   int res = lhs - rhs;
 
