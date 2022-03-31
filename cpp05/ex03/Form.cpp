@@ -6,7 +6,8 @@
 
 Form::Form() : sign_grade_(1), execution_grade_(1) {}
 
-Form::Form(std::string name, std::string target, int sign, int execution)
+Form::Form(const std::string& name, const std::string& target, const int& sign,
+           const int& execution)
     : name_(name),
       target_(target),
       sign_grade_(sign),
@@ -22,6 +23,7 @@ Form::Form(std::string name, std::string target, int sign, int execution)
 
 Form::Form(const Form& src)
     : name_(src.name_),
+      target_(src.target_),
       sign_grade_(src.sign_grade_),
       execution_grade_(src.execution_grade_),
       is_signed_(false) {}
@@ -43,19 +45,27 @@ Form& Form::operator=(Form const& rhs) {
   return *this;
 }
 
+std::ostream& operator<<(std::ostream& o, Form const& i) {
+  i.printStatus(o);
+  return o;
+}
+
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-const char* Form::signForm(Bureaucrat& bureaucrat) {
-  if (bureaucrat.getGrade() <= sign_grade_ && !is_signed_) {
-    is_signed_ = true;
-    return NULL;
-  } else if (is_signed_) {
-    return "already signed.";
-  } else {
-    return "Not enough grade.";
+void Form::beSigned(const Bureaucrat& bureaucrat) {
+  if (bureaucrat.getGrade() > sign_grade_) {
+    throw NotEnoughGradeException();
   }
+  is_signed_ = true;
+}
+
+void Form::execute(Bureaucrat const& executor) const {
+  if (!isExecutable(executor)) {
+    return;
+  }
+  executeAction();
 }
 
 bool Form::isExecutable(Bureaucrat const& executor) const {
@@ -94,6 +104,9 @@ const char* Form::NotSignedException::what() const throw() {
   return "This Form is not signed yet.";
 };
 
+const char* Form::NotEnoughGradeException::what() const throw() {
+  return "Not enough grade to sign.";
+};
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
