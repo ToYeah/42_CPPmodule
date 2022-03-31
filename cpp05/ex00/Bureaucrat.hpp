@@ -33,7 +33,7 @@ class Bureaucrat {
   static const int k_max_grade = 1;
   static const int k_min_grade = 150;
   Bureaucrat();
-  std::string name_;
+  const std::string name_;
   int grade_;
 };
 
