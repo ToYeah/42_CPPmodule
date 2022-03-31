@@ -30,7 +30,6 @@ Bureaucrat::~Bureaucrat() {}
 
 Bureaucrat& Bureaucrat::operator=(Bureaucrat const& rhs) {
   if (this != &rhs) {
-    this->name_ = rhs.name_;
     this->grade_ = rhs.grade_;
   }
   return *this;
@@ -60,12 +59,10 @@ void Bureaucrat::decrementGrade() {
 };
 
 void Bureaucrat::signForm(Form& form) {
-  const char* reason = form.signForm(*(this));
-  if (reason == NULL) {
-    std::cout << name_ << " signs " << form.getName() << std::endl;
+  if (form.getIsSigned()) {
+    std::cout << form.getName() << " is already signed" << std::endl;
   } else {
-    std::cout << name_ << " cannot sign " << form.getName() << " because ";
-    std::cout << reason << std::endl;
+    form.beSigned(*this);
   }
 }
 

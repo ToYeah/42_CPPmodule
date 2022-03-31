@@ -16,7 +16,7 @@ class Form {
 
   Form& operator=(Form const& rhs);
 
-  const char* signForm(Bureaucrat& bureaucrat);
+  void beSigned(const Bureaucrat& bureaucrat);
 
   const std::string& getName() const;
   const bool& getIsSigned() const;
@@ -29,6 +29,11 @@ class Form {
   };
 
   class GradeTooLowException : public std::exception {
+   public:
+    const char* what() const throw();
+  };
+
+  class NotEnoughGradeException : public std::exception {
    public:
     const char* what() const throw();
   };

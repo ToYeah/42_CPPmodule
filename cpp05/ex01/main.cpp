@@ -1,7 +1,6 @@
 #include "Bureaucrat.hpp"
 
 int main() {
-  Bureaucrat bureaucrat = Bureaucrat("Taro", 1);
   try {
     Form form = Form("Plan", 10, 10);
     std::cout << form;
@@ -9,7 +8,8 @@ int main() {
     std::cerr << e.what() << '\n';
   }
 
-  std::cout << "/////////////////////" << std::endl;
+  std::cout << "\n"
+            << "Constructor Error------------" << std::endl;
   try {
     Form form = Form("Plan", 0, 10);
     std::cout << form << std::endl;
@@ -35,7 +35,8 @@ int main() {
     std::cerr << e.what() << '\n';
   }
 
-  std::cout << "/////////////////////" << std::endl;
+  std::cout << "\n"
+            << "Success----------------------" << std::endl;
 
   try {
     Bureaucrat bureaucrat = Bureaucrat("Taro", 1);
@@ -46,27 +47,38 @@ int main() {
   } catch (const std::exception& e) {
     std::cerr << e.what() << '\n';
   }
+  try {
+    Bureaucrat bureaucrat = Bureaucrat("Hanako", 10);
+    Form form = Form("Plan", 10, 10);
+    std::cout << bureaucrat << std::endl;
+    std::cout << form;
+    bureaucrat.signForm(form);
+  } catch (const std::exception& e) {
+    std::cerr << e.what() << '\n';
+  }
 
-  std::cout << "/////////////////////" << std::endl;
+  std::cout << "\n"
+            << "Already signed---------------" << std::endl;
+
+  try {
+    Bureaucrat bureaucrat = Bureaucrat("Taro", 1);
+    Form form = Form("Plan", 10, 10);
+    std::cout << bureaucrat << std::endl;
+    std::cout << form;
+    bureaucrat.signForm(form);
+    std::cout << form;
+    bureaucrat.signForm(form);
+  } catch (const std::exception& e) {
+    std::cerr << e.what() << '\n';
+  }
+
+  std::cout << "\n"
+            << "Sign Error-------------------" << std::endl;
 
   try {
     Bureaucrat bureaucrat = Bureaucrat("Taro", 11);
     Form form = Form("Plan", 10, 10);
     std::cout << bureaucrat << std::endl;
-    std::cout << form;
-    bureaucrat.signForm(form);
-  } catch (const std::exception& e) {
-    std::cerr << e.what() << '\n';
-  }
-
-  std::cout << "/////////////////////" << std::endl;
-
-  try {
-    Bureaucrat bureaucrat = Bureaucrat("Taro", 1);
-    Form form = Form("Plan", 10, 10);
-    std::cout << bureaucrat << std::endl;
-    std::cout << form;
-    bureaucrat.signForm(form);
     std::cout << form;
     bureaucrat.signForm(form);
   } catch (const std::exception& e) {
