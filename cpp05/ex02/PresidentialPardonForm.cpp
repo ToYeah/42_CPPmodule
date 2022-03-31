@@ -48,11 +48,7 @@ std::ostream& operator<<(std::ostream& o, PresidentialPardonForm const& i) {
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void PresidentialPardonForm::execute(Bureaucrat const& executor) const {
-  if (!isExecutable(executor)) {
-    return;
-  }
-
+void PresidentialPardonForm::executeAction() const {
   std::cout << getTarget() << " has been pardoned by Zafod Beeblebrox."
             << std::endl;
 }

@@ -13,11 +13,11 @@ class Bureaucrat {
  public:
   static const int k_max_grade = 1;
   static const int k_min_grade = 150;
-  Bureaucrat(std::string name, int grade);
+  Bureaucrat(const std::string& name, const int& grade);
   Bureaucrat(Bureaucrat const& src);
   ~Bureaucrat();
 
-  Bureaucrat& operator=(Bureaucrat const& rhs);
+  Bureaucrat& operator=(const Bureaucrat& rhs);
 
   void incrementGrade();
   void decrementGrade();
@@ -40,7 +40,7 @@ class Bureaucrat {
 
  private:
   Bureaucrat();
-  std::string name_;
+  const std::string name_;
   int grade_;
 };
 

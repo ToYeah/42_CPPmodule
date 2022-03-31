@@ -12,7 +12,7 @@ class PresidentialPardonForm : public Form {
   PresidentialPardonForm(PresidentialPardonForm const& src);
   ~PresidentialPardonForm();
 
-  void execute(Bureaucrat const& executor) const;
+  void executeAction() const;
 
   PresidentialPardonForm& operator=(PresidentialPardonForm const& rhs);
 

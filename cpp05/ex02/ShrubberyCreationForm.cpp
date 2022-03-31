@@ -50,10 +50,7 @@ std::ostream& operator<<(std::ostream& o, ShrubberyCreationForm const& i) {
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
-  if (!isExecutable(executor)) {
-    return;
-  }
+void ShrubberyCreationForm::executeAction() const {
   try {
     std::ofstream file;
     file.exceptions(std::ifstream::failbit | std::ifstream::badbit);

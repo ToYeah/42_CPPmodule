@@ -1,5 +1,7 @@
 #include "RobotomyRequestForm.hpp"
 
+#include <ctime>
+
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
@@ -47,10 +49,8 @@ std::ostream& operator<<(std::ostream& o, RobotomyRequestForm const& i) {
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void RobotomyRequestForm::execute(Bureaucrat const& executor) const {
-  if (!isExecutable(executor)) {
-    return;
-  }
+void RobotomyRequestForm::executeAction() const {
+  std::srand(static_cast<unsigned int>(std::time(NULL)));
   std::string res = rand() % 2 ? "successfully" : "unsuccessfully";
   std::cout << "wheeeeeeeee" << std::endl;
   std::cout << "wheeeeeeeeeeeee" << std::endl;

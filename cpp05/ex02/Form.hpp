@@ -10,15 +10,17 @@ class Bureaucrat;
 
 class Form {
  public:
-  Form(std::string name, std::string target, int sign, int execution);
+  Form(const std::string& name, const std::string& target, const int& sign,
+       const int& execution);
   Form(Form const& src);
-  ~Form();
+  virtual ~Form();
 
   Form& operator=(Form const& rhs);
 
-  const char* signForm(Bureaucrat& bureaucrat);
+  void beSigned(const Bureaucrat& bureaucrat);
   bool isExecutable(Bureaucrat const& executor) const;
-  virtual void execute(Bureaucrat const& executor) const = 0;
+  void execute(Bureaucrat const& executor) const;
+  virtual void executeAction() const = 0;
 
   const std::string& getName() const;
   const bool& getIsSigned() const;
@@ -37,6 +39,11 @@ class Form {
     const char* what() const throw();
   };
 
+  class NotEnoughGradeException : public std::exception {
+   public:
+    const char* what() const throw();
+  };
+
   class NotSignedException : public std::exception {
    public:
     const char* what() const throw();
@@ -51,6 +58,8 @@ class Form {
   const int execution_grade_;
   bool is_signed_;
 };
+
+std::ostream& operator<<(std::ostream& o, Form const& i);
 
 #endif /* ************************************************************ FORM_H \
         */
