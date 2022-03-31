@@ -6,7 +6,7 @@
 
 Bureaucrat::Bureaucrat() {}
 
-Bureaucrat::Bureaucrat(std::string name, int grade)
+Bureaucrat::Bureaucrat(const std::string& name, const int& grade)
     : name_(name), grade_(grade) {
   if (grade < k_max_grade) {
     throw GradeTooHighException();

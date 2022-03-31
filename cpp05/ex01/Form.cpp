@@ -6,7 +6,7 @@
 
 Form::Form() : sign_grade_(1), execution_grade_(1) {}
 
-Form::Form(std::string name, int sign, int execution)
+Form::Form(const std::string& name, const int& sign, const int& execution)
     : name_(name),
       sign_grade_(sign),
       execution_grade_(execution),

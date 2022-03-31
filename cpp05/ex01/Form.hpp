@@ -10,7 +10,7 @@ class Bureaucrat;
 
 class Form {
  public:
-  Form(std::string name, int sign, int execution);
+  Form(const std::string& name, const int& sign, const int& execution);
   Form(Form const& src);
   ~Form();
 
