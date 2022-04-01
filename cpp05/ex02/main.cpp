@@ -48,7 +48,7 @@ int main() {
     std::cerr << e.what() << '\n';
   }
 
-  std::cout << "\n-----RobotomyRequestForm Test----" << std::endl;
+  std::cout << "\n-----PresidentialPardonForm Test----" << std::endl;
 
   try {
     std::cout << "\nSucces-----" << std::endl;
