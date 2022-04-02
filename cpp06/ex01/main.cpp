@@ -10,7 +10,10 @@ int main() {
   data.age = 10;
 
   uintptr_t a = serialize(&data);
-  std::cout << "uintptr_t: " << std::hex << a << std::endl;
   Data* b = deserialize(a);
-  std::cout << "Data*    : " << b << std::endl;
+
+  std::cout << "&Data     : " << std::hex << &data << std::endl;
+  std::cout << "uintptr_t : "
+            << "0x" << std::hex << a << std::endl;
+  std::cout << "Data*     : " << b << std::endl;
 }
