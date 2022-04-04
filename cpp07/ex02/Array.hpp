@@ -7,12 +7,12 @@ template <typename T>
 class Array {
  public:
   Array();
-  Array(unsigned int len);
-  Array(Array const& src);
+  Array(const unsigned int& len);
+  Array(const Array& src);
   ~Array();
 
-  T& operator[](const unsigned int n) const;
-  Array& operator=(Array const& rhs);
+  T& operator[](const unsigned int& n) const;
+  Array& operator=(const Array& rhs);
 
   unsigned int size() const;
 
@@ -27,12 +27,12 @@ Array<T>::Array() : value_(NULL), size_(0) {
 }
 
 template <typename T>
-Array<T>::Array(unsigned int len) : value_(NULL), size_(len) {
+Array<T>::Array(const unsigned int& len) : value_(NULL), size_(len) {
   value_ = new T[size_]();
 }
 
 template <typename T>
-Array<T>::Array(Array const& src) : value_(NULL), size_(0) {
+Array<T>::Array(const Array& src) : value_(NULL), size_(0) {
   *this = src;
 }
 
@@ -42,7 +42,7 @@ Array<T>::~Array() {
 }
 
 template <typename T>
-T& Array<T>::operator[](const unsigned int index) const {
+T& Array<T>::operator[](const unsigned int& index) const {
   if (index >= size_) {
     throw std::out_of_range("Invalid Index");
   }
@@ -55,7 +55,7 @@ unsigned int Array<T>::size() const {
 }
 
 template <typename T>
-Array<T>& Array<T>::operator=(Array const& rhs) {
+Array<T>& Array<T>::operator=(const Array& rhs) {
   if (this != &rhs) {
     delete[] this->value_;
     this->value_ = new T[rhs.size_]();
