@@ -1,44 +1,45 @@
 #include <iostream>
+#include <list>
 #include <vector>
 
 #include "easyfind.hpp"
 
 int main(void) {
-  std::vector<int> value = std::vector<int>(3);
-  std::vector<int>::iterator iter;
+  std::vector<int> vector = std::vector<int>(3);
 
-  value[0] = 1;
-  value[1] = 2;
-  value[2] = 3;
+  vector[0] = 1;
+  vector[1] = 2;
+  vector[2] = 3;
 
-  iter = easyfind(value, 1);
-  while (*iter) {
-    std::cout << *iter << ", ";
-    iter++;
+  std::list<float> list(3);
+
+  list.push_back(4);
+  list.push_back(5);
+  list.push_back(6);
+
+  std::cout << "-----------" << std::endl;
+  std::vector<int>::iterator it_v;
+  it_v = easyfind(vector, 1);
+
+  while (it_v != vector.end()) {
+    std::cout << *it_v;
+    it_v++;
   }
   std::cout << std::endl;
 
-  iter = easyfind(value, 2);
-  while (*iter) {
-    std::cout << *iter << ", ";
-    iter++;
+  std::cout << "-----------" << std::endl;
+  std::list<float>::iterator it_f;
+  it_f = easyfind(list, 4);
+
+  while (it_f != list.end()) {
+    std::cout << *it_f;
+    it_f++;
   }
   std::cout << std::endl;
 
-  value[1] = 5;
-  iter = easyfind(value, 1);
-  while (*iter) {
-    std::cout << *iter << ", ";
-    iter++;
-  }
-  std::cout << std::endl;
-
+  std::cout << "-----------" << std::endl;
   try {
-    std::vector<int> error_value = std::vector<int>(3);
-    error_value[0] = 1;
-    error_value[1] = 2;
-    error_value[2] = 3;
-    easyfind(error_value, 4);
+    it_v = easyfind(vector, 10);
   } catch (const std::exception& e) {
     std::cerr << e.what() << '\n';
   }
