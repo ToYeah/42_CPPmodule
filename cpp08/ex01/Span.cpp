@@ -50,10 +50,7 @@ void Span::addNumber(vec_it start, vec_it end) {
   if (vector_.size() + distance > size_) {
     throw NotEnoughCapacityException();
   }
-
-  for (vec_it it = start; it != end; it++) {
-    vector_.push_back(*it);
-  }
+  vector_.insert(vector_.begin() + vector_.size(), start, end);
 }
 unsigned int Span::calcAbs(int lhs, int rhs) {
   int res = lhs - rhs;
